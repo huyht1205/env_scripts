@@ -3,9 +3,7 @@
 function main() {
 	git_config
 	git_alias
-	initScript_copy bash_aliases 'common'
-	initScript_copy vimrc 'common'
-	initScript_copy bash_aliases_$(uname) 'OS_specific/mac'
+	initScript
 }
 
 function git_config() {
@@ -28,13 +26,24 @@ function initScript_copy() {
 	printf "${FUNCNAME}($1)..."
 	NAME=$1
 	PREFIX=$2
-	TARGET=${PREFIX}/${NAME}
-	if [[ -e ./${TARGET} ]]; then
-		cp ./${TARGET} ~/.${NAME}
+	TARGET=./${PREFIX}/${NAME}
+	if [[ -e ${TARGET} ]]; then
+		cp ${TARGET} ~/.${NAME}
 		printf "finished.\n"
 	else
-		printf "\e[31mERROR: File not found!\e[0m\n"
+		printf "\e[31mERROR: ${TARGET} not found!\e[0m\n"
 	fi
+}
+
+function initScript() {
+	#copy common
+	initScript_copy bash_aliases 'common'
+	initScript_copy vimrc 'common'
+
+	#copy specific
+	U_NAME=$(uname)
+	FILEPATH=OS_specific/${U_NAME}
+	initScript_copy bash_aliases_${U_NAME} ${FILEPATH}
 }
 
 main "$@"
