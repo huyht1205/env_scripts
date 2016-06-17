@@ -16,5 +16,4 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias df='df -Th'
 
-source /usr/local/etc/bash_completion.d/git-completion.bash
 source ~/.bash_aliases_$(uname)

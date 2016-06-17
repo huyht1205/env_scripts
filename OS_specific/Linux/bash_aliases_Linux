@@ -7,3 +7,5 @@ alias Rebuild='bitbake -c cleansstate beginner-tutorials && bitbake beginner-tut
 function DoSB2Conf {
 	sb2-init -n -c /usr/bin/qemu-arm $1 /usr/bin/arm-linux-gnueabihf-gcc
 }
+
+source /usr/share/bash-completion/completions/git
