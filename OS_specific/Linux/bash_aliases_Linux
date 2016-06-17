@@ -3,6 +3,7 @@ export PS1='\[\033[31;1m\]\w\[\033[0m\]\$ '
 
 alias cdenv='cd /data'
 alias cdwork='cd /data/50_workspace'
+alias cdgit='cd /data/10_git_repo'
 alias Rebuild='bitbake -c cleansstate beginner-tutorials && bitbake beginner-tutorials'
 
 function DoSB2Conf {
