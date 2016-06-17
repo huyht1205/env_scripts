@@ -5,6 +5,7 @@ USB_SERIAL=/dev/tty.usbserial-AL01FJMD
 
 alias GotoWork='ssh huyht@HHPC.local'
 alias cdenv='cd ~/Desktop/PROGRAMMING'
+alias cdwork='cd ~/workspace'
 alias ConnectSerial='picocom -b 115200 '${USB_SERIAL}
 alias sshRefresh='rm ~/.ssh/knownhost*'
 
