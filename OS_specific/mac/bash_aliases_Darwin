@@ -1,4 +1,5 @@
 #!/bin/bash
+export PS1='\[\033[37;1m\]\w\[\033[0m\]\$ '
 
 USB_SERIAL=/dev/tty.usbserial-AL01FJMD
 

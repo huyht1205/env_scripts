@@ -4,7 +4,6 @@ complete -cf sudo
 complete -cf which
 
 export VISUAL=vim
-export PS1='\[\033[37;1m\]\w\[\033[0m\]\$ '
 
 alias ls='ls --color=auto'
 alias ll='ls -l'
