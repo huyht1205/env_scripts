@@ -4,6 +4,7 @@ function main() {
 	git_config
 	git_alias
 	initScript
+	copy_etc
 }
 
 function git_config() {
@@ -46,6 +47,12 @@ function initScript() {
 	U_NAME=$(uname)
 	FILEPATH=OS_specific/${U_NAME}
 	initScript_copy bash_aliases_${U_NAME} ${FILEPATH}
+}
+
+function copy_etc() {
+	printf "${FUNCNAME}($1)..."
+	cp ./common/etc -rf /
+	printf "finished.\n"
 }
 
 main "$@"
