@@ -4,10 +4,10 @@ export PS1='\[\033[37;1m\]\w\[\033[0m\]\$ '
 USB_SERIAL=/dev/tty.usbserial-AL01FJMD
 
 alias GotoWork='ssh huyht@HHPC.local'
-alias cdenv='cd ~/Desktop/PROGRAMMING'
+alias cdenv='cd ~/Desktop/workspace'
 alias cdwork='cd ~/workspace'
 alias ConnectSerial='picocom -b 115200 '${USB_SERIAL}
-alias sshRefresh='rm ~/.ssh/knownhost*'
+alias sshRefresh='rm ~/.ssh/known_host*'
 
 echo ---Finished path edit---
 export PATH="/usr/local/sbin:$PATH"
