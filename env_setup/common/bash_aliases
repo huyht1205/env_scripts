@@ -16,4 +16,8 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias df='df -Th'
 
+function CloneMyRepo
+{
+	git clone https://github.com/huyht1205/${1}
+}
 source ~/.bash_aliases_$(uname)
