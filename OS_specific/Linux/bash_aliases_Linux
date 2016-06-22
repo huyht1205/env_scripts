@@ -5,6 +5,7 @@ alias cdenv='cd /data'
 alias cdwork='cd /data/50_workspace'
 alias cdgit='cd /data/10_git_repo'
 alias Rebuild='bitbake -c cleansstate beginner-tutorials && bitbake beginner-tutorials'
+alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
 
 function DoSB2Conf {
 	sb2-init -n -c /usr/bin/qemu-arm $1 /usr/bin/arm-linux-gnueabihf-gcc
