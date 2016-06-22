@@ -47,7 +47,10 @@ function initScript() {
 	U_NAME=$(uname)
 	LOCATION=OS_specific/${U_NAME}
 	initScript_copy bash_aliases_${U_NAME} ${LOCATION}
-	initScript_copy git-completion.bash ${LOCATION}
+	
+	if [[ ${U_NAME} = "Darwin" ]]; then
+		initScript_copy git-completion.bash ${LOCATION}
+	fi
 }
 
 function copy_etc() {
