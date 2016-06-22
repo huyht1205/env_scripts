@@ -22,4 +22,16 @@ function sshUpdate
 	echo $1 > ~/.LINUX_IP
 }
 
+function DoCrossConf
+{
+	export MACHINE=arm-linux-gnueabihf
+	export CROSS_ROOT=/usr/local/linaro/${MACHINE}/${MACHINE}
+
+	export CROSS_COMPILE=${CROSS_ROOT}/../bin/${MACHINE}-
+	export CROSS_LIB=${CROSS_ROOT}/lib32
+	export CROSS_INCLUDE=${CROSS_GCC_INCLUDE}/libc/usr/include
+	
+}
+
 source ~/.git-completion.bash
+
