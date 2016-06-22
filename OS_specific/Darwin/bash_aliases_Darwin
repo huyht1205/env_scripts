@@ -17,4 +17,4 @@ export PATH="/usr/local/opt/coreutils/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-source /usr/local/etc/bash_completion.d/git-completion.bash
+source ~/.git-completion.bash

@@ -28,8 +28,8 @@ function git_alias() {
 function initScript_copy() {
 	printf "${FUNCNAME}($1)..."
 	NAME=$1
-	PREFIX=$2
-	TARGET=./${PREFIX}/${NAME}
+	LOCATION=$2
+	TARGET=./${LOCATION}/${NAME}
 	if [[ -e ${TARGET} ]]; then
 		cp ${TARGET} ~/.${NAME}
 		printf "finished.\n"
@@ -45,8 +45,9 @@ function initScript() {
 
 	#copy specific
 	U_NAME=$(uname)
-	FILEPATH=OS_specific/${U_NAME}
-	initScript_copy bash_aliases_${U_NAME} ${FILEPATH}
+	LOCATION=OS_specific/${U_NAME}
+	initScript_copy bash_aliases_${U_NAME} ${LOCATION}
+	initScript_copy git-completion.bash ${LOCATION}
 }
 
 function copy_etc() {
