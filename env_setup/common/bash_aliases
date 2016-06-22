@@ -1,0 +1,19 @@
+#!/bin/bash
+
+complete -cf sudo
+complete -cf which
+
+export VISUAL=vim
+
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias la='ls -la'
+alias df='df -Th'
+alias mkdir='mkdir -p -m 775'
+alias addAlias='vim ~/.bash_aliases ; source ~/.bash_aliases'
+alias addAliasPrivate='vim ~/.bash_aliases_$(uname) ; source ~/.bash_aliases_$(uname)'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias df='df -Th'
+
+source ~/.bash_aliases_$(uname)

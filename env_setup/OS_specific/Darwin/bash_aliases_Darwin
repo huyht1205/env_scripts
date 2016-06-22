@@ -1,0 +1,25 @@
+#!/bin/bash
+export PS1='\[\033[37;1m\]\w\[\033[0m\]\$ '
+
+USB_SERIAL=/dev/tty.usbserial-AL01FJMD
+
+alias GotoWork='ssh root@$(cat ~/.LINUX_IP)'
+alias cdenv='cd ~/Desktop/workspace'
+
+alias ConnectSerial='picocom -b 115200 '${USB_SERIAL}
+alias sshRefresh='rm ~/.ssh/known_host*'
+
+echo ---Finished path edit---
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
+export PATH="/usr/local/opt/coreutils/bin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+function sshUpdate
+{
+	echo $1 > ~/.LINUX_IP
+}
+
+source ~/.git-completion.bash
