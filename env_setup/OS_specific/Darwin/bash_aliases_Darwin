@@ -29,9 +29,8 @@ function DoCrossConf
 
 	export CROSS_COMPILE=${CROSS_ROOT}/../bin/${MACHINE}-
 	export CROSS_LIB=${CROSS_ROOT}/lib32
-	export CROSS_INCLUDE=${CROSS_GCC_INCLUDE}/libc/usr/include
+	export CROSS_INCLUDE=${CROSS_ROOT}/libc/usr/include
 	
 }
 
 source ~/.git-completion.bash
-
