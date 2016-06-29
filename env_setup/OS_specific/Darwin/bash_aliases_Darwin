@@ -38,7 +38,7 @@ function DoCrossConf
 function mountShareNFS
 {
 	SHARE_POINT=/tftpboot
-	SHARE_DES=/Users/huytrunghoang/Desktop/workspace/nfs
+	SHARE_DES=${HOME}/Desktop/workspace/nfs
 	sudo mount -t nfs -o resvport,rw 192.168.100.3:${SHARE_POINT} ${SHARE_DES}
 }
 
