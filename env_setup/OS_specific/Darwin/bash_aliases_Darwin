@@ -4,9 +4,11 @@ export PS1='\[\033[37;1m\]\w\[\033[0m\]\$ '
 USB_SERIAL=/dev/tty.usbserial-AL01FJMD
 
 alias GotoWork='ssh root@$(cat ~/.LINUX_IP)'
-alias cdenv='cd ~/Desktop/workspace'
+alias cdwork='cd ~/Desktop/workspace'
+alias cdgit='cd ~/Desktop/workspace/git_repo'
+alias mktemp=/usr/bin/mktemp
 
-alias ConnectSerial='picocom -b 115200 '${USB_SERIAL}
+alias ConnectBoard='ssh root@192.168.100.4'
 alias sshRefresh='rm ~/.ssh/known_host*'
 
 echo ---Finished path edit---
@@ -31,6 +33,13 @@ function DoCrossConf
 	export CROSS_LIB=${CROSS_ROOT}/lib32
 	export CROSS_INCLUDE=${CROSS_ROOT}/libc/usr/include
 	
+}
+
+function mountShareNFS
+{
+	SHARE_POINT=/tftpboot
+	SHARE_DES=/Users/huytrunghoang/Desktop/workspace/nfs
+	sudo mount -t nfs -o resvport,rw 192.168.100.3:${SHARE_POINT} ${SHARE_DES}
 }
 
 source ~/.git-completion.bash
