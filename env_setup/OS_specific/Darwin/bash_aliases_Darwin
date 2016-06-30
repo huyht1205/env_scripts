@@ -1,7 +1,8 @@
 #!/bin/bash
 export PS1='\[\033[37;1m\]\w\[\033[0m\]\$ '
 
-USB_SERIAL=/dev/tty.usbserial-AL01FJMD
+#USB_SERIAL=/dev/tty.usbserial-AL01FJMD
+USB_SERIAL=/dev/tty.SLAB_USBtoUART
 
 alias GotoWork='ssh root@$(cat ~/.LINUX_IP)'
 alias cdwork='cd ~/Desktop/workspace'
@@ -9,6 +10,7 @@ alias cdgit='cd ~/Desktop/workspace/git_repo'
 alias mktemp=/usr/bin/mktemp
 
 alias ConnectBoard='ssh root@192.168.100.4'
+alias Serial='picocom -b 115200 $USB_SERIAL'
 alias sshRefresh='rm ~/.ssh/known_host*'
 
 echo ---Finished path edit---
@@ -39,7 +41,20 @@ function mountShareNFS
 {
 	SHARE_POINT=/tftpboot
 	SHARE_DES=${HOME}/Desktop/workspace/nfs
-	sudo mount -t nfs -o resvport,rw 192.168.100.3:${SHARE_POINT} ${SHARE_DES}
+	OPTION='resvport,rw'
+	sudo mount -t nfs -o ${OPTION} 192.168.100.3:${SHARE_POINT} ${SHARE_DES}
+}
+
+function rosUpgradeWorkspace
+{
+	if [[ -z $1 ]]; then
+		printf "\e[31mERROR: please specify some packages\e[0m"
+	fi
+	PACKAGE=$1
+	ROSINSTALL=${PACKAGE}-wet.rosinstall
+	rosinstall_generator ros_comm --rosdistro indigo --deps --wet-only --tar > ${ROSINSTALL} &&
+	wstool init -j8 src ${ROSINSTALL} &&
+	./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release
 }
 
 source ~/.git-completion.bash
