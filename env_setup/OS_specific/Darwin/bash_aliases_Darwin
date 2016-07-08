@@ -52,8 +52,9 @@ function rosUpgradeWorkspace
 	fi
 	PACKAGE=$1
 	ROSINSTALL=${PACKAGE}-wet.rosinstall
-	rosinstall_generator ros_comm --rosdistro indigo --deps --wet-only --tar > ${ROSINSTALL} &&
-	wstool init -j8 src ${ROSINSTALL} &&
+	rosinstall_generator ${PACKAGE} --rosdistro indigo --deps --wet-only --tar > ${ROSINSTALL} &&
+	wstool merge -t src ${ROSINSTALL}
+	wstool update -t src
 	./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release
 }
 
