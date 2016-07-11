@@ -55,7 +55,7 @@ function rosUpgradeWorkspace
 	rosinstall_generator ${PACKAGE} --rosdistro indigo --deps --wet-only --tar > ${ROSINSTALL} &&
 	wstool merge -t src ${ROSINSTALL}
 	wstool update -t src
-	./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release
+	./Build.sh
 }
 
 source ~/.git-completion.bash
