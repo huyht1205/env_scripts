@@ -1,6 +1,5 @@
 #!/bin/bash
-
-if [[ -f ./rostoochain.cmake ]]
+if [[ -f ./rostoolchain.cmake ]]
 then
 	./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=./rostoolchain.cmake
 else
