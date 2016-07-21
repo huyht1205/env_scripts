@@ -1,25 +1,27 @@
 #!/bin/bash
 export PS1='\[\033[37;1m\]\w\[\033[0m\]\$ '
 
+WORKSPACE=/workspace
+
 #USB_SERIAL=/dev/tty.usbserial-AL01FJMD
 USB_SERIAL=/dev/tty.SLAB_USBtoUART
 
 alias GotoWork='ssh root@$(cat ~/.LINUX_IP)'
-alias cdwork='cd ~/Desktop/workspace'
-alias cdgit='cd ~/Desktop/workspace/git_repo'
+alias cdwork='cd ${WORKSPACE}'
+alias cdgit='cd ${WORKSPACE}/git_repo'
 alias mktemp=/usr/bin/mktemp
 
 alias ConnectBoard='ssh root@192.168.100.4'
 alias Serial='picocom -b 115200 $USB_SERIAL'
 alias sshRefresh='rm ~/.ssh/known_host*'
 
-echo ---Finished path edit---
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 export PATH="/usr/local/opt/coreutils/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+echo ---Finished path edit---
 
 function sshUpdate
 {
