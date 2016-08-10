@@ -9,8 +9,8 @@ function main() {
 
 function git_config() {
 	printf "${FUNCNAME}($1)..."
-	git config --global user.name "Hoang Trung Huy"
-	git config --global user.email "huyht1205@gmail.com"
+	#git config --global user.name "Hoang Trung Huy"
+	#git config --global user.email "huyht1205@gmail.com"
 	git config --global core.editor "vim"
 	git config --global push.default simple
 	printf "finished.\n"
