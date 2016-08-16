@@ -9,8 +9,8 @@ function main() {
 
 function git_config() {
 	printf "${FUNCNAME}($1)..."
-	git config --global user.name "Hoang Trung Huy"
-	git config --global user.email "huyht1205@gmail.com"
+	#git config --global user.name "Hoang Trung Huy"
+	#git config --global user.email "huyht1205@gmail.com"
 	git config --global core.editor "vim"
 	git config --global push.default simple
 	printf "finished.\n"
@@ -56,6 +56,15 @@ function initScript() {
 function copy_etc() {
 	printf "${FUNCNAME}($1)..."
 	cp ./common/etc -rf /
+
+	U_NAME=$(uname)
+	LOCATION=OS_specific/${U_NAME}
+	OS_NAME=$(uname -v)
+	
+	if [[ ${U_NAME} = "Linux" && "${OS_NAME}" == *"Ubuntu"* ]]; then
+		printf " coping Ubuntu etc..."
+		cp -rf ./OS_specific/Linux/etc /
+	fi
 	printf "finished.\n"
 }
 

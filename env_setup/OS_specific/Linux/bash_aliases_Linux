@@ -2,29 +2,7 @@
 export PS1='\[\033[31;1m\]\w\[\033[0m\]\$ '
 
 alias cdenv='cd /data'
-alias cdwork='cd /data/50-workspace'
-alias cdgit='cd /data/10-git_repo'
-alias Rebuild='bitbake -c cleansstate beginner-tutorials && bitbake beginner-tutorials'
-alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
-
-function DoSB2Conf {
-	sb2-init -n -c /usr/bin/qemu-arm $1 /usr/bin/arm-linux-gnueabihf-gcc
-}
+alias cdwork='cd ~/workspace'
+alias cdgit='cd ~/git_repo'
 
 source /usr/share/bash-completion/completions/git
-
-function Do_export_ROS_CROSS {
-	echo "# Set cross compiler"
-	echo "set(CMAKE_C_COMPILER /usr/bin/arm-linux-gnueabihf-gcc)"
-	echo "set(CMAKE_CXX_COMPILER /usr/bin/arm-linux-gnueabihf-g++)"
-	echo "set(CMAKE_FIND_ROOT_PATH /usr/arm-linux-gnueabihf/lib)"
-	echo "# Have to set this one to BOTH, to allow CMake to find rospack"
-	echo "set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM BOTH)"
-	echo "set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)"
-	echo "set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)"
-	echo "set(CMAKE_CXX_FLAGS \" -std=gnu++11 -Wall\")"
-	echo "include_directories(include ${catkin_INCLUDE_DIRS}"
-	echo "			/root/ubuntu_1404_ROS-Indigo/usr/include"
-	echo "			/usr/arm-linux-gnueabihf/include:"
-	echo "			)"
-}
