@@ -7,7 +7,7 @@ GIT_REPO=/git_repo
 #USB_SERIAL=/dev/tty.usbserial-AL01FJMD
 USB_SERIAL=/dev/tty.SLAB_USBtoUART
 
-alias GotoWork='ssh root@$(cat ~/.LINUX_IP)'
+alias GotoLaptop='ssh root@$(cat ~/.LINUX_IP)'
 alias cdwork='cd ${WORKSPACE}'
 alias cdgit='cd ${GIT_REPO}'
 alias mktemp=/usr/bin/mktemp
@@ -33,27 +33,6 @@ function DoCrossConf
 	export CROSS_LIB=${CROSS_ROOT}/lib32
 	export CROSS_INCLUDE=${CROSS_ROOT}/libc/usr/include
 	
-}
-
-function mountShareNFS
-{
-	SHARE_POINT=/tftpboot
-	SHARE_DES=${HOME}/Desktop/workspace/nfs
-	OPTION='resvport,rw'
-	sudo mount -t nfs -o ${OPTION} 192.168.100.3:${SHARE_POINT} ${SHARE_DES}
-}
-
-function rosUpgradeWorkspace
-{
-	if [[ -z $1 ]]; then
-		printf "\e[31mERROR: please specify some packages\e[0m"
-	fi
-	PACKAGE=$1
-	ROSINSTALL=${PACKAGE}-wet.rosinstall
-	rosinstall_generator ${PACKAGE} --rosdistro indigo --deps --wet-only --tar > ${ROSINSTALL} &&
-	wstool merge -t src ${ROSINSTALL}
-	wstool update -t src
-	./Build.sh
 }
 
 source ~/.git-completion.bash
