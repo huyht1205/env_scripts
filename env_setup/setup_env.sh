@@ -25,7 +25,7 @@ function git_alias() {
 	printf "finished.\n"
 }
 
-function initScript_copy() {
+function do_copy() {
 	printf "${FUNCNAME}($1)..."
 	NAME=$1
 	LOCATION=$2
@@ -40,16 +40,16 @@ function initScript_copy() {
 
 function initScript() {
 	#copy common
-	initScript_copy bash_aliases 'common'
-	initScript_copy vimrc 'common'
+	do_copy bash_aliases 'common'
+	do_copy vimrc 'common'
 
 	#copy specific
 	U_NAME=$(uname)
 	LOCATION=OS_specific/${U_NAME}
-	initScript_copy bash_aliases_${U_NAME} ${LOCATION}
+	do_copy bash_aliases_${U_NAME} ${LOCATION}
 	
 	if [[ ${U_NAME} = "Darwin" ]]; then
-		initScript_copy git-completion.bash ${LOCATION}
+		do_copy git-completion.bash ${LOCATION}
 	fi
 }
 
