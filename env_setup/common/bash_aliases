@@ -4,6 +4,8 @@ complete -cf sudo
 complete -cf which
 
 export VISUAL=vim
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 alias ls='ls --color=auto'
 alias ll='ls -l'

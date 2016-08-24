@@ -25,13 +25,13 @@ function git_alias() {
 	printf "finished.\n"
 }
 
-function do_copy() {
+function do_link() {
 	printf "${FUNCNAME}($1)..."
 	NAME=$1
 	LOCATION=$2
 	TARGET=./${LOCATION}/${NAME}
 	if [[ -e ${TARGET} ]]; then
-		cp ${TARGET} ~/.${NAME}
+		ln -sf ${PWD}/${TARGET} ~/.${NAME}
 		printf "finished.\n"
 	else
 		printf "\e[31mERROR: ${TARGET} not found!\e[0m\n"
@@ -40,16 +40,16 @@ function do_copy() {
 
 function initScript() {
 	#copy common
-	do_copy bash_aliases 'common'
-	do_copy vimrc 'common'
+	do_link bash_aliases 'common'
+	do_link vimrc 'common'
 
 	#copy specific
 	U_NAME=$(uname)
 	LOCATION=OS_specific/${U_NAME}
-	do_copy bash_aliases_${U_NAME} ${LOCATION}
+	do_link bash_aliases_${U_NAME} ${LOCATION}
 	
 	if [[ ${U_NAME} = "Darwin" ]]; then
-		do_copy git-completion.bash ${LOCATION}
+		do_link git-completion.bash ${LOCATION}
 	fi
 }
 
