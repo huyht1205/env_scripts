@@ -25,11 +25,29 @@ function CloneMyRepo
 function addAlias
 {
 	vim ~/.bash_aliases ; source ~/.bash_aliases
+	updateGit
+}
+
+function addAliasPrivate
+{
 	vim ~/.bash_aliases_$(uname) ; source ~/.bash_aliases_$(uname)
+	updateGit
+}
+
+function updateGit
+{
+	CURRENT_PATH=$(pwd)
 	cdgit
 	cd scripts
 	git add -A
-	git commit -s -m "Update"
+	git commit --amend
+	cd ${CURRENT_PATH}
+}
+
+function DoCrossConf
+{
+	export ARCH=arm
+	export CROSS_COMPILE=arm-linux-gnueabihf-
 }
 
 source ~/.bash_aliases_$(uname)
