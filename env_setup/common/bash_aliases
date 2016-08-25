@@ -26,6 +26,10 @@ function addAlias
 {
 	vim ~/.bash_aliases ; source ~/.bash_aliases
 	vim ~/.bash_aliases_$(uname) ; source ~/.bash_aliases_$(uname)
+	cdgit
+	cd scripts
+	git add -A
+	git commit -s -m "Update"
 }
 
 source ~/.bash_aliases_$(uname)
