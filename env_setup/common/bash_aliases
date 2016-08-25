@@ -25,11 +25,21 @@ function CloneMyRepo
 function addAlias
 {
 	vim ~/.bash_aliases ; source ~/.bash_aliases
+	updateGit
+}
+
+function addAliasPrivate
+{
 	vim ~/.bash_aliases_$(uname) ; source ~/.bash_aliases_$(uname)
+	updateGit
+}
+
+function updateGit
+{
 	cdgit
 	cd scripts
 	git add -A
-	git commit -s -m "Update"
+	git commit --amend
 }
 
 source ~/.bash_aliases_$(uname)
