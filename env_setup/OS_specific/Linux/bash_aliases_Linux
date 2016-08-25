@@ -2,7 +2,7 @@
 export PS1='\[\033[31;1m\]\w\[\033[0m\]\$ '
 
 alias cdenv='cd /data'
-alias cdwork='cd ~/workspace'
-alias cdgit='cd ~/git_repo'
+alias cdwork='cd /data/workspace'
+alias cdgit='cd /data/git_repo'
 
 source /usr/share/bash-completion/completions/git
