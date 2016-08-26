@@ -37,6 +37,7 @@ function addAliasPrivate
 function updateGit
 {
 	CURRENT_PATH=$(pwd)
+	CURRENT_PATH=$(pwd)
 	cdgit
 	cd scripts
 	git add -A
