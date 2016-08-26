@@ -1,10 +1,11 @@
 #!/bin/bash
 export PS1='\[\033[31;1m\]\w\[\033[0m\]\$ '
 
-alias cdenv='cd /data'
-alias cdwork='cd /data/workspace'
-alias cdgit='cd /data/git_repo'
-
 alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
 
 source /usr/share/bash-completion/completions/git
+
+function DoShare
+{
+	mount.vboxsf vboxsf /data/workspace/
+}
