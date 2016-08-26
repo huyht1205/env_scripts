@@ -36,11 +36,15 @@ function addAliasPrivate
 
 function updateGit
 {
+<<<<<<< HEAD
 	CURRENT_PATH=$(pwd)
+=======
+>>>>>>> e2845df31d20255afcf73521a1a2a67fc7d2aa37
 	cdgit
 	cd scripts
 	git add -A
 	git commit --amend
+<<<<<<< HEAD
 	cd ${CURRENT_PATH}
 }
 
@@ -48,6 +52,8 @@ function DoCrossConf
 {
 	export ARCH=arm
 	export CROSS_COMPILE=arm-linux-gnueabihf-
+=======
+>>>>>>> e2845df31d20255afcf73521a1a2a67fc7d2aa37
 }
 
 source ~/.bash_aliases_$(uname)
