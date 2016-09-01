@@ -117,8 +117,7 @@ AuthorizedKeysFile	.ssh/authorized_keys
 #UseLogin no
 UsePrivilegeSeparation sandbox		# Default for new installations.
 #PermitUserEnvironment no
-Compression yes
-CompressionLevel 6
+#Compression yes
 #ClientAliveInterval 0
 #ClientAliveCountMax 3
 #UseDNS no
