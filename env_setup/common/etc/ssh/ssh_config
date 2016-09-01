@@ -42,7 +42,8 @@
    Port 22
    Protocol 2,1
 #   Cipher 3des
-   Ciphers blowfish-cbc, aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-cbc,3des-cbc
+   Ciphers blowfish-cbc
+#   Ciphers blowfish-cbc, aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-cbc,3des-cbc
 #   MACs hmac-md5,hmac-sha1,umac-64@openssh.com,hmac-ripemd160
 #   EscapeChar ~
 #   Tunnel no
@@ -55,3 +56,5 @@
 # XAuthLocation added by XQuartz (http://www.xquartz.org)
 Host *
     XAuthLocation /opt/X11/bin/xauth
+
+Compression yes
