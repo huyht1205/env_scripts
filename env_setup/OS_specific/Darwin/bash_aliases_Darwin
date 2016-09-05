@@ -9,7 +9,7 @@ alias Serial='picocom -b 115200 $USB_SERIAL'
 alias sshRefresh='rm ~/.ssh/known_host*'
 
 alias GotoLaptop='ssh root@lh-asuspc.local'
-alias GotoVBox='ssh root@lh-vbox.local'
+alias GotoVBox='ssh root@vbox.local'
 alias mktemp=/usr/bin/mktemp
 
 export PATH="/usr/local/bin:$PATH"
@@ -32,3 +32,7 @@ function DoCrossConf
 }
 
 source ~/.git-completion.bash
+
+if [ -f /usr/local/etc/bash_completion ]; then  
+. /usr/local/etc/bash_completion
+fi  
