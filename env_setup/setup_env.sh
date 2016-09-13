@@ -4,7 +4,7 @@ function main() {
 	git_config
 	git_alias
 	initScript
-	copy_etc
+	#copy_etc
 }
 
 function git_config() {
