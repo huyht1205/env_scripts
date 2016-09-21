@@ -9,6 +9,7 @@ alias Serial='picocom -b 115200 $USB_SERIAL'
 alias sshRefresh='rm ~/.ssh/known_host*'
 
 alias GotoLaptop='ssh root@lh-asuspc.local'
+alias MountLaptop='sshfs root@lh-asuspc.local:/data/workspace /data/workspace/SFTP/ASUS-PC'
 alias GotoVBox='ssh root@vbox.local'
 alias mktemp=/usr/bin/mktemp
 
