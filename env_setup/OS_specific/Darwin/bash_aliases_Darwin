@@ -9,8 +9,9 @@ alias Serial='picocom -b 115200 $USB_SERIAL'
 alias sshRefresh='rm ~/.ssh/known_host*'
 
 alias GotoLaptop='ssh root@lh-asuspc.local'
-alias GotoVBox='ssh root@lh-vbox.local'
-alias mktemp=/usr/bin/mktemp
+alias MountLaptop='sshfs root@lh-asuspc.local:/data/workspace /data/workspace/SFTP/ASUS-PC'
+alias GotoVM='ssh root@vm.local'
+alias MountVM='sshfs root@vm.local:/data/workspace /data/workspace/SFTP/VM'
 
 export PATH="/usr/local/bin:$PATH"
 echo ---Finished path edit---
@@ -20,15 +21,8 @@ function sshUpdate
 	echo $1 > ~/.LINUX_IP
 }
 
-function DoCrossConf
-{
-	export MACHINE=arm-linux-gnueabihf
-	export CROSS_ROOT=/usr/local/linaro/${MACHINE}/${MACHINE}
-
-	export CROSS_COMPILE=${CROSS_ROOT}/../bin/${MACHINE}-
-	export CROSS_LIB=${CROSS_ROOT}/lib32
-	export CROSS_INCLUDE=${CROSS_ROOT}/libc/usr/include
-	
-}
-
 source ~/.git-completion.bash
+
+if [ -f /usr/local/etc/bash_completion ]; then  
+. /usr/local/etc/bash_completion
+fi  
