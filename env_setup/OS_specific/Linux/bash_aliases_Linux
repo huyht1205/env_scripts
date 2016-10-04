@@ -1,6 +1,8 @@
 #!/bin/bash
 export PS1='\[\033[31;1m\]\w\[\033[0m\]\$ '
+export MAC_DOWNLOADS='hoangtrunghuy@192.168.15.5:/Users/hoangtrunghuy/Downloads'
 
+alias picocom='picocom -e q'
 alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
 
 source /usr/share/bash-completion/completions/git
