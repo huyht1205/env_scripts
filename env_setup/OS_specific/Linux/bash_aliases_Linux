@@ -1,5 +1,5 @@
 #!/bin/bash
-export PS1='\[\033[35;1m\]\w\[\033[0m\]\$ '
+export PS1='\[\033[31;1m\]\w\[\033[0m\]\$ '
 export MAC_DOWNLOADS='hoangtrunghuy@192.168.15.5:/Users/hoangtrunghuy/Downloads'
 
 alias picocom='picocom -e q'

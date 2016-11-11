@@ -17,6 +17,7 @@ alias egrep='egrep --color=auto'
 alias df='df -Th'
 alias cdgit='cd /data/git_repo'
 alias cdwork='cd /data/workspace'
+alias cdyocto='cd /data/yocto'
 
 function CloneMyRepo
 {
@@ -52,7 +53,7 @@ function DoCrossConf
 		CROSS_COMPILER_PATH=/data/workspace/tools/gcc-linaro-4.9-2016.02-x86_64_arm-linux-gnueabihf/bin
 	fi
 	export ARCH=arm
-	export CROSS_COMPILE=${CROSS_COMPILER_PATH}/arm-linux-gnueabihf-
+	export CROSS_COMPILE=arm-linux-gnueabi-
 }
 
 source ~/.bash_aliases_$(uname)
