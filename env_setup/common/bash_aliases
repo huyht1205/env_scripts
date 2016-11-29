@@ -19,6 +19,20 @@ alias cdgit='cd /data/git_repo'
 alias cdwork='cd /data/workspace'
 alias cdyocto='cd /data/yocto'
 
+function GitLocalConfig
+{
+	if [[ ${1} = "luck.hoang" ]]; then
+		git config user.email "luck.hoang@styl.solutions"
+		git config user.name "Luck Hoang"
+	elif [[ ${1} = "huyht1205" ]]; then
+		git config user.email "huyht1205@gmail.com"
+		git config user.name "Hoang Trung Huy"
+	else
+		printf "\e[31mERROR: please enter name \"huyht1205\" or \"luck.hoang\"\e[0m\n"
+	fi
+}
+
+
 function CloneMyRepo
 {
 	DIR=${2}
