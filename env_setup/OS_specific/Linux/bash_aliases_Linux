@@ -12,9 +12,3 @@ function DoShare
 {
 	mount.vboxsf vboxsf /data/workspace/
 }
-
-function GitLocalConfig
-{
-	git config user.email "luck.hoang@styl.solutions"
-	git config user.name "Luck Hoang"
-}
