@@ -63,7 +63,7 @@ function updateGit
 
 function DoCrossConf
 {
-	CROSS_COMPILER_PATH=/data/workspace/tools/gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabi/bin/
+	#CROSS_COMPILER_PATH=/data/workspace/tools/gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabi/bin/
 	export CROSS_COMPILE=${CROSS_COMPILER_PATH}arm-linux-gnueabi-
 	export ARCH=arm
 }
