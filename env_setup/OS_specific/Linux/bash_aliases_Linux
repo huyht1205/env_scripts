@@ -5,6 +5,7 @@ export MAC_DOWNLOADS='hoangtrunghuy@192.168.15.5:/Users/hoangtrunghuy/Downloads'
 alias picocom='picocom -e q'
 alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
 alias MountMac='sshfs hoangtrunghuy@lh-mac.local:/data/workspace /data/workspace/'
+alias cdlinuxWorkspace='cd /data/linux-workspace'
 
 source /usr/share/bash-completion/completions/git
 
