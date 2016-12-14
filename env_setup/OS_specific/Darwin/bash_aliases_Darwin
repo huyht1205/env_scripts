@@ -22,6 +22,8 @@ alias MountVM='sshfs luckhoang@vm.local:/data /data/vm'
 export PATH="/usr/local/bin:$PATH"
 echo ---Finished path edit---
 
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
 function sshUpdate
 {
 	echo $1 > ~/.LINUX_IP
@@ -40,4 +42,3 @@ function GetKernel
 	sync
 	diskutil unmount /Volumes/NO\ NAME/
 }
-
