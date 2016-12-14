@@ -1,14 +1,18 @@
 #!/bin/bash
-export PS1='\[\033[35;1m\]\w\[\033[0m\]\$ '
-export MAC_DOWNLOADS='hoangtrunghuy@192.168.15.5:/Users/hoangtrunghuy/Downloads'
+export PS1='\[\033[31;1m\]\w\[\033[0m\]\$ '
 
-alias picocom='picocom -e q'
 alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
-alias MountMac='sshfs hoangtrunghuy@lh-mac.local:/data/workspace /data/workspace/'
+alias make='make -j4'
 
-source /usr/share/bash-completion/bash_completion
+source /usr/share/bash-completion/completions/git
 
 function DoShare
 {
 	mount.vboxsf vboxsf /data/workspace/
+}
+
+function GitLocalConfig
+{
+	git config user.email "luck.hoang@styl.solutions"
+	git config user.name "Luck Hoang"
 }

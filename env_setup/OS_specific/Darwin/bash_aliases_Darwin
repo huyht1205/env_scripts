@@ -1,17 +1,23 @@
 #!/bin/bash
 export PS1='\[\033[37;1m\]\w\[\033[0m\]\$ '
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 #USB_SERIAL=/dev/tty.usbserial-AL01FJMD
 USB_SERIAL=/dev/tty.SLAB_USBtoUART
 
-alias ConnectBoard='ssh root@192.168.100.4'
 alias Serial='picocom -b 115200 $USB_SERIAL'
 alias sshRefresh='rm ~/.ssh/known_host*'
+alias picocom='picocom -e q'
+SSH_OPTS="-C6 -4"
+alias ssh='ssh ${SSH_OPTS}'
+alias sshfs='sshfs'
 
-alias GotoLaptop='ssh root@lh-asuspc.local'
-alias MountLaptop='sshfs root@lh-asuspc.local:/data/workspace /data/workspace/SFTP/ASUS-PC'
-alias GotoVM='ssh root@vm.local'
-alias MountVM='sshfs root@vm.local:/data/workspace /data/workspace/SFTP/VM'
+LAPTOP_IP=lh-asuspc.local
+alias GotoLaptop='ssh luckhoang@${LAPTOP_IP}'
+alias MountLaptop='sshfs luckhoang@${LAPTOP_IP}:/data /data/lh-asuspc'
+alias GotoVM='ssh luckhoang@vm.local'
+alias MountVM='sshfs luckhoang@vm.local:/data /data/vm'
 
 export PATH="/usr/local/bin:$PATH"
 echo ---Finished path edit---
@@ -26,3 +32,12 @@ source ~/.git-completion.bash
 if [ -f /usr/local/etc/bash_completion ]; then  
 . /usr/local/etc/bash_completion
 fi  
+
+function GetKernel
+{
+	scp root@vm.local:/data/workspace/kernel/arch/arm/boot/uImage /Volumes/NO\ NAME/
+	scp root@vm.local:/data/workspace/kernel/arch/arm/boot/dts/imx6q-sabresd.dtb /Volumes/NO\ NAME/
+	sync
+	diskutil unmount /Volumes/NO\ NAME/
+}
+
