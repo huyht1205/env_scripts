@@ -34,11 +34,3 @@ source ~/.git-completion.bash
 if [ -f /usr/local/etc/bash_completion ]; then  
 . /usr/local/etc/bash_completion
 fi  
-
-function GetKernel
-{
-	scp root@vm.local:/data/workspace/kernel/arch/arm/boot/uImage /Volumes/NO\ NAME/
-	scp root@vm.local:/data/workspace/kernel/arch/arm/boot/dts/imx6q-sabresd.dtb /Volumes/NO\ NAME/
-	sync
-	diskutil unmount /Volumes/NO\ NAME/
-}
