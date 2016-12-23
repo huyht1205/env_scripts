@@ -7,7 +7,7 @@ fi
 NORMAL_LIST=" \
 	coreutils autoconf automake bash-completion ctags gawk \
 	gettext git gnu-sed iperf picocom ssh-copy-id sshfs unrar \
-	wget xz \
+	wget xz libtool m4 \
 "
 
 CASK_LIST=" \
