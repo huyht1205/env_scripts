@@ -15,6 +15,7 @@ CASK_LIST=" \
 "
 
 brew tap homebrew/fuse
+brew tap homebrew/dupes
 brew tap Caskroom/cask
 
 brew install ${NORMAL_LIST}
