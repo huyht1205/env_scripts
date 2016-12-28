@@ -18,8 +18,8 @@ LAPTOP_IP=lh-asuspc.local
 VM_IP=192.168.56.101
 alias GotoLaptop='ssh luckhoang@${LAPTOP_IP}'
 alias MountLaptop='sshfs luckhoang@${LAPTOP_IP}:/data /data/lh-asuspc'
-alias GotoVM='ssh root@${VM_IP}'
-alias MountVM='sshfs root@${VM_IP}:/data /data/vm'
+alias GotoVM='ssh luckhoang@${VM_IP}'
+alias MountVM='sshfs luckhoang@${VM_IP}:/data /data/vm'
 
 export PATH="/usr/local/bin:$PATH"
 echo ---Finished path edit---
