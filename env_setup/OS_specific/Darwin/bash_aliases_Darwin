@@ -10,16 +10,17 @@ USB_SERIAL=/dev/tty.SLAB_USBtoUART
 alias Serial='picocom -b 115200 $USB_SERIAL'
 alias sshRefresh='rm ~/.ssh/known_host*'
 alias picocom='picocom -e q'
-SSH_OPTS="-C6 -4"
+SSH_OPTS="-4"
 alias ssh='ssh ${SSH_OPTS}'
 alias sshfs='sshfs'
 
 LAPTOP_IP=lh-asuspc.local
-VM_IP=192.168.56.101
+VM_IP=vm.local
+VM_ACC=root
 alias GotoLaptop='ssh luckhoang@${LAPTOP_IP}'
 alias MountLaptop='sshfs luckhoang@${LAPTOP_IP}:/data /data/lh-asuspc'
-alias GotoVM='ssh luckhoang@${VM_IP}'
-alias MountVM='sshfs luckhoang@${VM_IP}:/data /data/vm'
+alias GotoVM='ssh ${VM_ACC}@${VM_IP}'
+alias MountVM='sshfs ${VM_ACC}@${VM_IP}:/data /data/vm'
 
 export PATH="/usr/local/bin:$PATH"
 echo ---Finished path edit---
