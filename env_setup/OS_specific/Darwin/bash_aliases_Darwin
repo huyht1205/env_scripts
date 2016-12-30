@@ -1,6 +1,7 @@
 #!/bin/bash
 export PS1='\[\033[37;1m\]\w\[\033[0m\]\$ '
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/linaro/arm-linux-gnueabihf/bin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 #USB_SERIAL=/dev/tty.usbserial-AL01FJMD
@@ -14,30 +15,19 @@ alias ssh='ssh ${SSH_OPTS}'
 alias sshfs='sshfs'
 
 LAPTOP_IP=lh-asuspc.local
+VM_IP=192.168.56.101
 alias GotoLaptop='ssh luckhoang@${LAPTOP_IP}'
 alias MountLaptop='sshfs luckhoang@${LAPTOP_IP}:/data /data/lh-asuspc'
-alias GotoVM='ssh luckhoang@vm.local'
-alias MountVM='sshfs luckhoang@vm.local:/data /data/vm'
+alias GotoVM='ssh root@${VM_IP}'
+alias MountVM='sshfs root@${VM_IP}:/data /data/vm'
 
 export PATH="/usr/local/bin:$PATH"
 echo ---Finished path edit---
 
-function sshUpdate
-{
-	echo $1 > ~/.LINUX_IP
-}
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 source ~/.git-completion.bash
 
 if [ -f /usr/local/etc/bash_completion ]; then  
 . /usr/local/etc/bash_completion
 fi  
-
-function GetKernel
-{
-	scp root@vm.local:/data/workspace/kernel/arch/arm/boot/uImage /Volumes/NO\ NAME/
-	scp root@vm.local:/data/workspace/kernel/arch/arm/boot/dts/imx6q-sabresd.dtb /Volumes/NO\ NAME/
-	sync
-	diskutil unmount /Volumes/NO\ NAME/
-}
-
