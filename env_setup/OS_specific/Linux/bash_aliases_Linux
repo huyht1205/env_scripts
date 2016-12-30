@@ -1,10 +1,13 @@
 #!/bin/bash
-export PS1='\[\033[31;1m\]\w\[\033[0m\]\$ '
+export PS1='\[\033[35;1m\]\w\[\033[0m\]\$ '
 
+MAC_IP=192.168.56.1
 alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
-alias MountMac='sshfs hoangtrunghuy@lh-mac.local:/data/workspace /data/workspace/'
+alias MountMac='sshfs hoangtrunghuy@${MAC_IP}:/data/workspace /data/workspace/'
 alias cdlinuxWorkspace='cd /data/linux-workspace'
 alias cdyocto='cd /data/yocto'
+
+export LD_LIBRARY_PATH=/usr/lib64
 
 source /usr/share/bash-completion/completions/git
 
