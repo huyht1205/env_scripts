@@ -18,12 +18,6 @@ alias df='df -Th'
 alias cdgit='cd /data/git_repo'
 alias cdwork='cd /data/workspace'
 
-function CloneMyRepo
-{
-	DIR=${2}
-	git clone https://github.com/huyht1205/${1} ${DIR}
-}
-
 function addAlias
 {
 	vim ~/.bash_aliases ; source ~/.bash_aliases

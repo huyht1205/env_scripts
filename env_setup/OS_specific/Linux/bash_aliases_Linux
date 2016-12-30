@@ -5,6 +5,7 @@ alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
 alias MountMac='sshfs hoangtrunghuy@lh-mac.local:/data/workspace /data/workspace/'
 alias cdlinuxWorkspace='cd /data/linux-workspace'
 alias cdyocto='cd /data/yocto'
+alias picocom='picocom -e q'
 
 source /usr/share/bash-completion/completions/git
 
