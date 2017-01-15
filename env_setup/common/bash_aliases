@@ -18,6 +18,11 @@ alias df='df -Th'
 alias cdgit='cd /data/git_repo'
 alias cdwork='cd /data/workspace'
 
+SSH_OPTS="-4"
+alias ssh='ssh ${SSH_OPTS}'
+SSHFS_OPTS="-o cache=yes -o kernel_cache -o compression=no -o large_read -o Ciphers=arcfour"
+alias sshfs='sshfs ${SSHFS_OPTS}'
+
 function addAlias
 {
 	vim ~/.bash_aliases ; source ~/.bash_aliases

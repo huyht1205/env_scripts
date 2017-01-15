@@ -12,7 +12,8 @@ alias sshRefresh='rm ~/.ssh/known_host*'
 alias picocom='picocom -e q'
 SSH_OPTS="-4"
 alias ssh='ssh ${SSH_OPTS}'
-alias sshfs='sshfs'
+SSHFS_OPTS="-o cache=yes -o kernel_cache -o compression=no -o large_read -o Ciphers=arcfour"
+alias sshfs='sshfs ${SSHFS_OPTS}'
 
 LAPTOP_IP=lh-asuspc.local
 LAPTOP_ACC=luckhoang
