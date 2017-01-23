@@ -1,7 +1,7 @@
 #!/bin/bash
 export PS1='\[\033[31;1m\]\w\[\033[0m\]\$ '
 
-MAC_IP=192.168.56.1
+MAC_IP=lh-mac.local
 alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
 alias MountMac='sshfs hoangtrunghuy@${MAC_IP}:/data/workspace /data/workspace/'
 alias cdlinuxWorkspace='cd /data/linux-workspace'

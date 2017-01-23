@@ -20,7 +20,8 @@ alias cdwork='cd /data/workspace'
 
 SSH_OPTS="-4"
 alias ssh='ssh ${SSH_OPTS}'
-alias sshfs='sshfs'
+SSHFS_OPTS="-o cache=yes -o kernel_cache -o compression=no -o large_read"
+alias sshfs='sshfs ${SSHFS_OPTS}'
 
 function addAlias
 {
