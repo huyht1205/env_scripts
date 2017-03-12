@@ -2,31 +2,34 @@
 export PS1='\[\033[37;1m\]\w\[\033[0m\]\$ '
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/linaro/arm-linux-gnueabihf/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-#USB_SERIAL=/dev/tty.usbserial-AL01FJMD
-USB_SERIAL=/dev/tty.SLAB_USBtoUART
-
-alias Serial='picocom -b 115200 $USB_SERIAL'
 alias sshRefresh='rm ~/.ssh/known_host*'
 alias picocom='picocom -e q'
+alias Serial='picocom -b 115200 $1'
 
-LAPTOP_IP=lh-asuspc.local
-LAPTOP_ACC=luckhoang
-VM_IP=vm.local
-VM_ACC=root
-PC_IP=lh-pc.local
-PC_ACC=luckhoang
-MOUNTPOINT=/data/mountPoint
+MOUNTPOINT='/data/mountPoint'
+
+LAPTOP_IP='lh-asuspc.local'
+LAPTOP_ACC='luckhoang'
 alias GotoLaptop='ssh ${LAPTOP_ACC}@${LAPTOP_IP}'
 alias MountLaptop='sshfs ${LAPTOP_ACC}@${LAPTOP_IP}:/ ${MOUNTPOINT}/lh-asuspc'
+
+VM_IP='vm.local'
+VM_ACC='root'
 alias GotoVM='ssh ${VM_ACC}@${VM_IP}'
 alias MountVM='sshfs ${VM_ACC}@${VM_IP}:/ ${MOUNTPOINT}/vm'
-alias GotoPC='ssh luckhoang@${PC_IP}'
-alias MountPC='sshfs luckhoang@${PC_IP}:/ ${MOUNTPOINT}/pc'
 
-export PATH="/usr/local/bin:$PATH"
-echo ---Finished path edit---
+PC_IP='lh-pc.local'
+PC_ACC='luckhoang'
+alias GotoPC='ssh ${PC_ACC}@${PC_IP}'
+alias MountPC='sshfs ${PC_ACC}@${PC_IP}:/ ${MOUNTPOINT}/pc'
+
+DOCKER_IP='localhost -p 2222'
+DOCKER_ACC='root'
+alias GotoDocker='ssh ${DOCKER_ACC}@${DOCKER_IP}'
+alias MountDocker='sshfs ${DOCKER_ACC}@${DOCKER_IP}:/ ${MOUNTPOINT}/docker'
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
@@ -34,4 +37,6 @@ source ~/.git-completion.bash
 
 if [ -f /usr/local/etc/bash_completion ]; then  
 . /usr/local/etc/bash_completion
-fi  
+fi
+
+echo ---Finished path edit---

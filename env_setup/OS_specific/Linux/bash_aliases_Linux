@@ -1,5 +1,5 @@
 #!/bin/bash
-export PS1='\[\033[31;1m\]\w\[\033[0m\]\$ '
+export PS1='\[\033[36;1m\]\w\[\033[0m\]\$ '
 
 MAC_IP=lh-mac.local
 alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
