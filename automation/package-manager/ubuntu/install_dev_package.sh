@@ -11,7 +11,7 @@ YOCTO_DEV=" \
 "
 
 KERNEL_DEV=" \
-	u-boot-tools lzop libncurses5 libncurses5-dev \
+	u-boot-tools lzop libncurses5 libncurses5-dev device-tree-compiler\
 "
 
 AUTOTOOLS=" \
