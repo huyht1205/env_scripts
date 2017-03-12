@@ -8,6 +8,7 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 alias sshRefresh='rm ~/.ssh/known_host*'
 alias picocom='picocom -e q'
 alias Serial='picocom -b 115200 $1'
+alias sshfs='sshfs -o sshfs_sync'
 
 MOUNTPOINT='/data/mountPoint'
 
