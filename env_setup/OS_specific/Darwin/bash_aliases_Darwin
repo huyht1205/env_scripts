@@ -4,6 +4,7 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/linaro/arm-linux-gnueabihf/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
 alias sshRefresh='rm ~/.ssh/known_host*'
 alias picocom='picocom -e q'
