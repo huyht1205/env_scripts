@@ -1,7 +1,6 @@
 #!/bin/bash
 export PS1='\[\033[37;1m\]\w\[\033[0m\]\$ '
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/linaro/arm-linux-gnueabihf/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
