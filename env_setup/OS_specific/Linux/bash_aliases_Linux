@@ -7,6 +7,7 @@ alias MountMac='sshfs hoangtrunghuy@${MAC_IP}:/data/workspace /data/workspace/'
 alias cdlinuxWorkspace='cd /data/linux-workspace'
 alias cdyocto='cd /data/yocto'
 alias picocom='picocom -e q'
+alias pacman='pacman --color auto'
 
 export LD_LIBRARY_PATH=/usr/lib64:/usr/local/lib
 
