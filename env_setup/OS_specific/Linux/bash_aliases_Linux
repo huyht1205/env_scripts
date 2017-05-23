@@ -1,5 +1,5 @@
 #!/bin/bash
-export PS1='\[\033[36;1m\]\w\[\033[0m\]\$ '
+export PS1='\[\033[32;1m\]\w\[\033[0m\]\$ '
 
 MAC_IP=lh-mac.local
 alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
@@ -30,4 +30,13 @@ function DoCrossConfig
 {
 	export ARCH=arm
 	export CROSS_COMPILE=arm-linux-gnueabihf-
+}
+
+function MountiBRIDGEDrive
+{
+	sudo mount -t cifs -o username=huy.ht //192.168.1.12/LRapp /data/ibridge/lrapp/
+
+	sudo mount -t cifs -o username=huy.ht //192.168.1.12/release /data/ibridge/release/
+
+	sudo mount -t cifs -o username=huy.ht //192.168.1.12/common /data/ibridge/common
 }
