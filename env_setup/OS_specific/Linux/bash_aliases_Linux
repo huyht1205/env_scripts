@@ -34,9 +34,12 @@ function DoCrossConfig
 
 function MountiBRIDGEDrive
 {
-	sudo mount -t cifs -o username=huy.ht //192.168.1.12/LRapp /data/ibridge/lrapp/
+	MOUNT_OPTS='-t cifs -o username=huy.ht,password=qylz39dd,rw,user,uid=hh'
+	SERVER_IP='192.168.1.12'
 
-	sudo mount -t cifs -o username=huy.ht //192.168.1.12/release /data/ibridge/release/
+	sudo mount ${MOUNT_OPTS} //${SERVER_IP}/LRapp /data/ibridge/lrapp
 
-	sudo mount -t cifs -o username=huy.ht //192.168.1.12/common /data/ibridge/common
+	sudo mount ${MOUNT_OPTS} //${SERVER_IP}/release /data/ibridge/release
+
+	sudo mount ${MOUNT_OPTS} //${SERVER_IP}/common /data/ibridge/common
 }
