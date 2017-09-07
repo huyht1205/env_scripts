@@ -9,6 +9,7 @@ alias picocom='picocom -e q'
 alias pacman='pacman --color auto'
 alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
 alias InitPokySDK='source /data/yocto/i.MX6/sdk/environment-setup-cortexa9hf-neon-poky-linux-gnueabi'
+alias apt='sudo apt'
 
 export LD_LIBRARY_PATH=/usr/lib64:/usr/local/lib
 
