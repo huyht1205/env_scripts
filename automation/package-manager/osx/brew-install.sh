@@ -18,6 +18,6 @@ brew tap homebrew/fuse
 brew tap homebrew/dupes
 brew tap Caskroom/cask
 
-brew install ${NORMAL_LIST}
+#brew install ${NORMAL_LIST}
 
-brew cask install ${CASK_LIST}
+#brew cask install ${CASK_LIST}

@@ -1,13 +1,14 @@
 #!/bin/bash
-export PS1='\[\033[36;1m\]\w\[\033[0m\]\$ '
+export PS1='\[\033[32;1m\]\w\[\033[0m\]\$ '
 
 MAC_IP=lh-mac.local
-alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
 alias MountMac='sshfs hoangtrunghuy@${MAC_IP}:/data/workspace /data/workspace/'
 alias cdlinuxWorkspace='cd /data/linux-workspace'
 alias cdyocto='cd /data/yocto'
 alias picocom='picocom -e q'
 alias pacman='pacman --color auto'
+alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
+alias InitPokySDK='source /data/yocto/i.MX6/sdk/environment-setup-cortexa9hf-neon-poky-linux-gnueabi'
 
 export LD_LIBRARY_PATH=/usr/lib64:/usr/local/lib
 
@@ -30,4 +31,18 @@ function DoCrossConfig
 {
 	export ARCH=arm
 	export CROSS_COMPILE=arm-linux-gnueabihf-
+}
+
+function MountiBRIDGEDrive
+{
+	MOUNT_OPTS='-t cifs -o username=huy.ht,password=qylz39dd,rw,user,uid=hh'
+	SERVER_IP='192.168.1.12'
+	MOUNT_LOCATION='/data/ibridge'
+	DRIVE_LIST=(LRapp release common iBJ)
+	
+
+	for drive in "${DRIVE_LIST[@]}"; do
+		echo "Mount ${drive}"
+		sudo mount ${MOUNT_OPTS} //${SERVER_IP}/${drive} ${MOUNT_LOCATION}/${drive}
+	done
 }
