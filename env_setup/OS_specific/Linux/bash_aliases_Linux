@@ -5,6 +5,7 @@ MAC_IP=lh-mac.local
 alias MountMac='sshfs hoangtrunghuy@${MAC_IP}:/data/workspace /data/workspace/'
 alias cdlinuxWorkspace='cd /data/linux-workspace'
 alias cdyocto='cd /data/yocto'
+alias picocom='sudo picocom'
 alias picocom='picocom -e q'
 alias pacman='pacman --color auto'
 alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
