@@ -41,7 +41,7 @@ function updateGit
 	cdgit
 	cd scripts
 	git add -A
-	git commit --amend
+	git commit -s
 	cd ${CURRENT_PATH}
 }
 
