@@ -12,7 +12,6 @@ alias InitPokySDK='source /data/yocto/i.MX6/sdk/environment-setup-cortexa9hf-neo
 alias apt='sudo apt'
 alias mount='sudo mount'
 alias umount='sudo umount'
-alias picocom='sudo picocom'
 alias visudo='sudo visudo'
 alias Vim='vim'
 
