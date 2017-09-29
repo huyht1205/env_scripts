@@ -1,0 +1,44 @@
+#!/bin/bash
+export PS1='\[\033[37;1m\]\w\[\033[0m\]\$ '
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
+export PATH="/usr/local/bin:${PATH}"
+export PATH="/usr/local/gcc-arm-none-eabi-6-2017-q1-update/bin:${PATH}"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
+
+alias sshRefresh='rm ~/.ssh/known_host*'
+alias picocom='picocom -e q'
+alias Serial='picocom -b 115200 $1'
+alias sshfs='sshfs -o sshfs_sync'
+
+MOUNTPOINT='/data/mountPoint'
+
+LAPTOP_IP='lh-asuspc.local'
+LAPTOP_ACC='luckhoang'
+alias GotoLaptop='ssh ${LAPTOP_ACC}@${LAPTOP_IP}'
+alias MountLaptop='sshfs ${LAPTOP_ACC}@${LAPTOP_IP}:/ ${MOUNTPOINT}/lh-asuspc'
+
+VM_IP='vm.local'
+VM_ACC='root'
+alias GotoVM='ssh ${VM_ACC}@${VM_IP}'
+alias MountVM='sshfs ${VM_ACC}@${VM_IP}:/ ${MOUNTPOINT}/vm'
+
+PC_IP='lh-pc.local'
+PC_ACC='luckhoang'
+alias GotoPC='ssh ${PC_ACC}@${PC_IP}'
+alias MountPC='sshfs ${PC_ACC}@${PC_IP}:/ ${MOUNTPOINT}/pc'
+
+DOCKER_IP='localhost -p 2222'
+DOCKER_ACC='root'
+alias GotoDocker='ssh ${DOCKER_ACC}@${DOCKER_IP}'
+alias MountDocker='sshfs ${DOCKER_ACC}@${DOCKER_IP}:/ ${MOUNTPOINT}/docker'
+
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+source ~/.git-completion.bash
+
+if [ -f /usr/local/etc/bash_completion ]; then  
+. /usr/local/etc/bash_completion
+fi
+
+echo ---Finished path edit---
