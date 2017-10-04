@@ -34,3 +34,34 @@ function MountiBRIDGEDrive
 		sudo mount ${MOUNT_OPTS} //${SERVER_IP}/${drive} ${MOUNT_LOCATION}/${drive}
 	done
 }
+
+function print_error
+{
+	printf "\e[31mERROR: ${1}\e[0m\n"
+}
+
+function Deploy_rootfs
+{
+	MMC_DEV=${1}
+	IMAGE=${2}
+
+	if [[ -z ${1} || -z ${2} ]]; then
+		printf "\e[31mUsage: Deploy_rootfs <device> <image.tar>\e[0m\n"
+		return 1
+	fi
+
+	if [[ ! $(file ${IMAGE}) = *"POSIX tar archive (GNU)" ]]; then	
+		printf "\e[31mERROR: ${IMAGE} is not tar archive file\e[0m\n"
+		return 1
+	fi
+
+	MOUNTPOINT=/mnt
+
+	sudo mkfs.ext4 ${MMC_DEV}
+	sudo mount ${MMC_DEV} ${MOUNTPOINT} || return 1
+	sudo tar xf ${IMAGE} -C ${MOUNTPOINT} || return 1
+	sync
+	sudo umount ${MMC_DEV}
+	
+	printf "Finish. SDCard is unmounted.\n"
+}
