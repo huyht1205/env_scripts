@@ -21,23 +21,6 @@ source /usr/share/bash-completion/completions/git
 
 export PATH=${PATH}:/usr/local/gcc-arm-linux-gnueabihf/bin
 
-function DoShare
-{
-	mount.vboxsf vboxsf /data/workspace/
-}
-
-function GitLocalConfig
-{
-	git config user.email "luck.hoang@styl.solutions"
-	git config user.name "Luck Hoang"
-}
-
-function DoCrossConfig
-{
-	export ARCH=arm
-	export CROSS_COMPILE=arm-linux-gnueabihf-
-}
-
 function MountiBRIDGEDrive
 {
 	MOUNT_OPTS='-t cifs -o username=huy.ht,password=qylz39dd,rw,user,uid=hh'
