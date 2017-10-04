@@ -13,25 +13,15 @@ alias sshfs='sshfs -o sshfs_sync'
 
 MOUNTPOINT='/data/mountPoint'
 
-LAPTOP_IP='lh-asuspc.local'
-LAPTOP_ACC='luckhoang'
-alias GotoLaptop='ssh ${LAPTOP_ACC}@${LAPTOP_IP}'
-alias MountLaptop='sshfs ${LAPTOP_ACC}@${LAPTOP_IP}:/ ${MOUNTPOINT}/lh-asuspc'
-
 VM_IP='vm.local'
 VM_ACC='root'
 alias GotoVM='ssh ${VM_ACC}@${VM_IP}'
 alias MountVM='sshfs ${VM_ACC}@${VM_IP}:/ ${MOUNTPOINT}/vm'
 
-PC_IP='lh-pc.local'
-PC_ACC='luckhoang'
+PC_IP='hh-ubuntu.local'
+PC_ACC='hh'
 alias GotoPC='ssh ${PC_ACC}@${PC_IP}'
 alias MountPC='sshfs ${PC_ACC}@${PC_IP}:/ ${MOUNTPOINT}/pc'
-
-DOCKER_IP='localhost -p 2222'
-DOCKER_ACC='root'
-alias GotoDocker='ssh ${DOCKER_ACC}@${DOCKER_IP}'
-alias MountDocker='sshfs ${DOCKER_ACC}@${DOCKER_IP}:/ ${MOUNTPOINT}/docker'
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
