@@ -21,6 +21,13 @@ source /usr/share/bash-completion/completions/git
 
 export PATH=${PATH}:/usr/local/gcc-arm-linux-gnueabihf/bin
 
+function GotoPC
+{
+	PC_IP=hh-frontier.local
+	PC_ACC=hh
+	ssh ${PC_ACC}@${PC_IP}
+}
+
 function MountiBRIDGEDrive
 {
 	MOUNT_OPTS='-t cifs -o username=huy.ht,password=qylz39dd,rw,user,uid=hh'
