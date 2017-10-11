@@ -19,7 +19,7 @@ function git_config() {
 function git_alias() {
 	printf "${FUNCNAME}($1)..."
 	git config --global alias.s status
-	git config --global alias.l log
+	git config --global alias.l log --decorate
 	git config --global alias.b branch
 	git config --global alias.a add
 	printf "finished.\n"
