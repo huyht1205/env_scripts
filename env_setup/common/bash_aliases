@@ -1,5 +1,8 @@
 #!/bin/bash
 
+ROOT_DIR=$(dirname $(realpath ${BASH_SOURCE[0]}))
+source ${ROOT_DIR}/utils.sh
+
 complete -cf sudo
 complete -cf which
 
@@ -21,7 +24,7 @@ alias cdbuildroot='cd /data/buildroot'
 
 SSH_OPTS="-4"
 alias ssh='ssh ${SSH_OPTS}'
-SSHFS_OPTS="-o cache=yes -o kernel_cache -o compression=no -o allow_other"
+SSHFS_OPTS="-o cache=yes -o kernel_cache -o compression=no"
 alias sshfs='sshfs ${SSHFS_OPTS}'
 
 function addAlias
@@ -46,10 +49,20 @@ function updateGit
 	cd ${CURRENT_PATH}
 }
 
-function DoCrossConf
+function CmakeTemplate()
 {
-	export ARCH=arm
-	export CROSS_COMPILE=arm-linux-gnueabihf-
+	if [[ -z ${1} ]]; then
+		echo "Usage: ${0} <lib|bin>"
+		return -1
+	fi
+
+    CMAKE_TEMPLATE_PATH=/data/git_repo/scripts/automation/template/cmake
+    cp ${CMAKE_TEMPLATE_PATH}/CMakeLists_${1}.template ${PWD}/CMakeLists.txt
+}
+
+function CmakeClean()
+{
+    rm -rf CMakeCache.txt  CMakeFiles  cmake_install.cmake Makefile
 }
 
 source ~/.bash_aliases_$(uname)

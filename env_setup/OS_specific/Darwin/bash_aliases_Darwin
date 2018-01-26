@@ -18,7 +18,7 @@ VM_ACC='root'
 alias GotoVM='ssh ${VM_ACC}@${VM_IP}'
 alias MountVM='sshfs ${VM_ACC}@${VM_IP}:/ ${MOUNTPOINT}/vm'
 
-PC_IP='hh-ubuntu.local'
+PC_IP='192.168.2.4'
 PC_ACC='hh'
 alias GotoPC='ssh ${PC_ACC}@${PC_IP}'
 alias MountPC='sshfs ${PC_ACC}@${PC_IP}:/ ${MOUNTPOINT}/pc'

@@ -1,11 +1,19 @@
 #!/bin/bash
+
+ROOT_DIR=$(dirname $(realpath ${BASH_SOURCE[0]}))
+source ${ROOT_DIR}/../../common/utils.sh
+
 export PS1='\[\033[32;1m\]\w\[\033[0m\]\$ '
+INFO_COLOR="\e[37m"
+ERROR_COLOR="\e[31m"
+WARNING_COLOR="\e[33m"
+NORMAL_COLOR="\e[0m"
 
 MAC_IP=lh-mac.local
 alias MountMac='sshfs hoangtrunghuy@${MAC_IP}:/data/workspace /data/workspace/'
 alias cdlinuxWorkspace='cd /data/linux-workspace'
 alias cdyocto='cd /data/yocto'
-alias picocom='sudo picocom -e q'
+alias picocom='sudo picocom -e t'
 alias pacman='pacman --color auto'
 alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
 alias InitPokySDK='source /data/yocto/i.MX6/sdk/environment-setup-cortexa9hf-neon-poky-linux-gnueabi'
@@ -16,59 +24,115 @@ alias visudo='sudo visudo'
 alias Vim='vim'
 
 export LD_LIBRARY_PATH=/usr/lib64:/usr/local/lib
+export PATH=${PATH}:${ROOT_DIR}/../../../development_function
 
 source /usr/share/bash-completion/completions/git
 
-export PATH=${PATH}:/usr/local/gcc-arm-linux-gnueabihf/bin
-
-function GotoPC
+function GotoPC()
 {
-	PC_IP=hh-frontier.local
-	PC_ACC=hh
-	ssh ${PC_ACC}@${PC_IP}
+    PC_IP=hh-frontier.local
+    PC_ACC=hh
+    ssh ${PC_ACC}@${PC_IP}
 }
 
-function MountiBRIDGEDrive
+function GotoBBG()
 {
-	MOUNT_OPTS='-t cifs -o username=huy.ht,password=qylz39dd,rw,user,uid=hh'
-	SERVER_IP='192.168.1.12'
-	MOUNT_LOCATION='/data/ibridge'
-	DRIVE_LIST=(LRapp release common iBJ)
-	
-
-	for drive in "${DRIVE_LIST[@]}"; do
-		echo "Mount ${drive}"
-		sudo mount ${MOUNT_OPTS} //${SERVER_IP}/${drive} ${MOUNT_LOCATION}/${drive}
-	done
+    PC_IP=hh-bbg.local
+    PC_ACC=root
+    ssh ${PC_ACC}@${PC_IP}
 }
 
-function print_error
+function MountiBRIDGEDrive()
 {
-	printf "\e[31mERROR: ${1}\e[0m\n"
+    MOUNT_OPTS='-t cifs -o username=huy.ht,password=qylz39dd,rw,user,uid=hh -o vers=1.0'
+    SERVER_IP='192.168.1.12'
+    MOUNT_LOCATION='/data/ibridge'
+    DRIVE_LIST=(LRapp release common iBJ)
+
+
+    for drive in "${DRIVE_LIST[@]}"; do
+        print_info "Mount ${drive}\n"
+        sudo mount ${MOUNT_OPTS} //${SERVER_IP}/${drive} ${MOUNT_LOCATION}/${drive}
+    done
 }
 
-function Deploy_rootfs
+function Rootfs_deploy()
 {
-	MMC_DEV=${1}
-	IMAGE=${2}
+    MMC_DEV=${1}
+    IMAGE=${2}
 
-	if [[ -z ${1} || -z ${2} ]]; then
-		printf "\e[31mUsage: Deploy_rootfs <device> <image.tar>\e[0m\n"
-		return 1
-	fi
+    if [[ -z ${1} || -z ${2} ]]; then
+        print_info "Usage: Deploy_rootfs <device> <image.tar>\n"
+        exit 1
+    fi
 
-	if [[ ! $(file ${IMAGE}) = *"POSIX tar archive (GNU)" ]]; then	
-		printf "\e[31mERROR: ${IMAGE} is not tar archive file\e[0m\n"
-		return 1
-	fi
+    if [[ ! $(file ${IMAGE}) = *"POSIX tar archive (GNU)" ]]; then
+        print_error "${IMAGE} is not tar archive file\n"
+        exit 1
+    fi
 
-	MOUNTPOINT=/mnt
+    MOUNT_POINT=/mnt
 
-	sudo mkfs.ext4 ${MMC_DEV}
-	sudo mount ${MMC_DEV} ${MOUNTPOINT} || return 1
-	sudo tar xf ${IMAGE} -C ${MOUNTPOINT} || return 1
-	sync
-	sudo umount ${MMC_DEV}
-	
-	printf "Finish. SDCard is unmounted.\n"
+    sudo mkfs.ext4 ${MMC_DEV}
+    sudo mount ${MMC_DEV} ${MOUNT_POINT} || exit 1
+    sudo tar xf ${IMAGE} -C ${MOUNT_POINT} || exit 1
+    sync
+    sudo umount ${MMC_DEV}
+
+    print_info "Finish. SDCard is unmounted.\n"
+}
+
+function Uboot_deploy()
+{
+    if [[ -z ${1} || -z ${2} ]]; then
+        print_info "Usage: Uboot_deploy <u-boot> <dev>\n"
+    fi
+
+    if [[ ! -e ${1} ]]; then
+        print_error "${1} is NOT found\n"
+        return 1
+    fi
+
+    if [[ ! -e ${2} ]]; then
+        print_error "${2} is NOT found\n"
+        return 1
+    fi
+
+    sudo dd if=${1} of=${2} bs=1K seek=1 conv=fsync
+    sync
+}
+
+function Lr_up()
+{
+	ssh root@hh-bbg.local 'lr_power_control.sh up'
+}
+
+function Lr_down()
+{
+	ssh root@hh-bbg.local 'lr_power_control.sh down'
+}
+
+function Lr_reset()
+{
+	ssh root@hh-bbg.local 'lr_power_control.sh reset'
+}
+
+function Lr_setup()
+{
+	ssh root@hh-bbg.local 'lr_power_control.sh setup'
+}
+
+function Change_IP_class()
+{
+    sudo ifconfig enx84afec7365aa 192.168.${1}.191
+}
+
+function Ssh_refresh()
+{
+    rm ${HOME}/.ssh/known_hosts
+}
+
+function ToLowerCase()
+{
+    rename 'y/A-Z/a-z/' ${1}
 }

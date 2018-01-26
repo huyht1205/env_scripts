@@ -1,0 +1,45 @@
+cmake_minimum_required (VERSION 3.4.3)
+
+set(TARGET
+    "My project"
+    )
+
+project(${TARGET}
+    VERSION 1.0.0
+    LANGUAGES "CXX"
+    )
+
+set(SOURCES
+    ${TARGET}.cpp
+    )
+
+set(PUBLIC_HEADER_FILES
+    ${TARGET}.h
+    )
+
+set(DEPENDENCIES_LIST
+    )
+
+add_compile_options(
+    -std=c++11
+    )
+
+add_definitions(
+    )
+
+add_library(${TARGET} SHARED
+    "${SOURCES}"
+    )
+
+set_target_properties(${TARGET} PROPERTIES
+    PUBLIC_HEADER "${PUBLIC_HEADER_FILES}"
+    )
+
+install(TARGETS ${TARGET}
+    LIBRARY         DESTINATION lib
+    PUBLIC_HEADER   DESTINATION include
+    )
+
+target_link_libraries(${TARGET} "${DEPENDENCIES_LIST}")
+
+set(CMAKE_VERBOSE_MAKEFILE ON)

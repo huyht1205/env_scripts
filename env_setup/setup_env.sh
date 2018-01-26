@@ -45,11 +45,14 @@ function initScript() {
 
 	#copy specific
 	U_NAME=$(uname)
+    OS_NAME=$(uname -v)
 	LOCATION=OS_specific/${U_NAME}
 	do_link bash_aliases_${U_NAME} ${LOCATION}
-	
-	if [[ ${U_NAME} = "Darwin" ]]; then
+
+	if [[ ${U_NAME} == "Darwin" ]]; then
 		do_link git-completion.bash ${LOCATION}
+    elif [[ ${U_NAME} == "Linux" ]]; then
+        gnome_config
 	fi
 }
 
@@ -61,11 +64,19 @@ function copy_etc() {
 	LOCATION=OS_specific/${U_NAME}
 	OS_NAME=$(uname -v)
 	
-	if [[ ${U_NAME} = "Linux" && "${OS_NAME}" == *"Ubuntu"* ]]; then
+	if [[ "${OS_NAME}" == *"Ubuntu"* ]]; then
 		printf " coping Ubuntu etc..."
 		cp -rf ./OS_specific/Linux/etc /
 	fi
 	printf "finished.\n"
+}
+
+function gnome_config() {
+    if [[ ! -z $(which gnome-shell) ]]; then
+        printf "gnome-shell is found.\n"
+        printf "gnome_config\n"
+        ln -sf ${PWD}/OS_specific/Linux/gnome-config ~/.config
+    fi
 }
 
 main "$@"
