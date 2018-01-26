@@ -1,0 +1,11 @@
+{
+    "autocomplete_all" : true,
+    "max_cache_age": "00:30:00",
+    "verbose": false,
+    "use_libclang" : true,
+    "show_type_info" : true,
+    "use_libclang_caching": true,
+    "flags_sources": [
+        {"file": ".clang_complete"},
+    ],
+}

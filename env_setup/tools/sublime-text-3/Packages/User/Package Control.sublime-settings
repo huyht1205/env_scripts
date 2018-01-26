@@ -1,0 +1,22 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"ARM Assembly",
+		"Bitbake Syntax",
+		"C Improved",
+		"CMake",
+		"Devicetree DTS Highlighting",
+		"DoxyDoc",
+		"EasyClangComplete",
+		"Makefile Improved",
+		"Markdown Preview",
+		"Package Control",
+		"QMakeProject",
+		"TerminalView",
+		"Vintageous"
+	]
+}
