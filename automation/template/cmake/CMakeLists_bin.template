@@ -40,4 +40,4 @@ install(TARGETS ${TARGET}
 
 target_link_libraries(${TARGET} "${DEPENDENCIES_LIST}")
 
-set(CMAKE_VERBOSE_MAKEFILE ON)
+#set(CMAKE_VERBOSE_MAKEFILE ON)
