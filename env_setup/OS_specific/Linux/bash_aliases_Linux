@@ -1,0 +1,49 @@
+#!/bin/bash
+
+ROOT_DIR=$(dirname $(realpath ${BASH_SOURCE[0]}))
+source ${ROOT_DIR}/../../common/utils.sh
+source ${ROOT_DIR}/../../common/project_scripts.sh
+
+export PS1='\[\033[32;1m\]\w\[\033[0m\]\$ '
+
+MAC_IP=lh-mac.local
+alias MountMac='sshfs hoangtrunghuy@${MAC_IP}:/data/workspace /data/workspace/'
+alias cdlinuxWorkspace='cd /data/linux-workspace'
+alias cdyocto='cd /data/yocto'
+alias picocom='sudo picocom -e t'
+alias pacman='pacman --color auto'
+alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
+alias apt='sudo apt'
+alias mount='sudo mount'
+alias umount='sudo umount'
+alias visudo='sudo visudo'
+alias Vim='vim'
+
+export LD_LIBRARY_PATH=/usr/lib64:/usr/local/lib
+export PATH=${PATH}:${ROOT_DIR}/../../../development_function
+
+source /usr/share/bash-completion/completions/git
+
+function GotoPC()
+{
+    PC_IP=hh-frontier.local
+    PC_ACC=hh
+    ssh ${PC_ACC}@${PC_IP}
+}
+
+function GotoBBG()
+{
+    PC_IP=192.168.10.190
+    PC_ACC=root
+    ssh ${PC_ACC}@${PC_IP}
+}
+
+function Ssh_refresh()
+{
+    rm ${HOME}/.ssh/known_hosts
+}
+
+function ToLowerCase()
+{
+    rename 'y/A-Z/a-z/' ${1}
+}

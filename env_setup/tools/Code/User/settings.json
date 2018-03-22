@@ -1,0 +1,43 @@
+{
+    "vim.useCtrlKeys": false,
+    "editor.fontSize": 13,
+    "editor.rulers": [
+        100
+    ],
+    "editor.useTabStops": false,
+    "workbench.colorTheme": "Monokai",
+    "editor.minimap.enabled": false,
+    "window.openFilesInNewWindow": "default",
+    "window.openFoldersInNewWindow": "off",
+    "editor.wordWrap": "on",
+    "python.linting.enabled": true,
+    "python.linting.lintOnSave": false,
+    "python.linting.maxNumberOfProblems": 100,
+    "python.workspaceSymbols.exclusionPatterns": [
+        ".vscode/*.py",
+        "**/site-packages/**/*.py"
+    ],
+    "workbench.startupEditor": "none",
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": true,
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.scrollback": 1000000,
+    "window.zoomLevel": 0,
+    "python.linting.pylintPath": "/usr/local/bin/pylint",
+    "C_Cpp.errorSquiggles": "Enabled",
+    "c-cpp-flylint.standard": [
+        "c11",
+        "c++11"
+    ],
+    "c-cpp-flylint.clang.standard": [
+        "c++11"
+    ],
+    "c-cpp-flylint.cppcheck.standard": [
+        "c++11"
+    ],
+    "c-cpp-flylint.flexelint.enable": false,
+    "files.trimTrailingWhitespace": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+}

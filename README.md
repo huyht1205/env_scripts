@@ -1,2 +1,1 @@
-# env_scripts
-My workspace bash scripts
+my auto scripts to setup workspace
