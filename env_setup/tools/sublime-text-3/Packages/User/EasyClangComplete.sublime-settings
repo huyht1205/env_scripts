@@ -6,6 +6,17 @@
     "show_type_info" : true,
     "use_libclang_caching": true,
     "flags_sources": [
+<<<<<<< HEAD
         {"file": ".clang_complete"},
+=======
+        {"file": ".clang_complete"}
+    ],
+    "hide_default_completions" : false,
+    "common_flags" : [
+        "-I/usr/include",
+        // "-I/usr/include/asm-generic",
+        "-I$project_base_path/inc",
+        "-I/usr/lib/clang/$clang_version/include",
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
     ],
 }

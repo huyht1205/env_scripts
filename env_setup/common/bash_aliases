@@ -10,6 +10,11 @@ export VISUAL=vim
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+<<<<<<< HEAD
+=======
+CPU_CORE=$(cat /proc/cpuinfo | grep -c ^processor)
+
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
 alias ls='ls -h --color=auto'
 alias ll='ls -l'
 alias la='ls -la'
@@ -18,6 +23,10 @@ alias mkdir='mkdir -p -m 775'
 alias grep='grep --color=auto --exclude=tags'
 alias egrep='egrep --color=auto --exclude=tags -n'
 alias df='df -Th'
+<<<<<<< HEAD
+=======
+alias make='make -j${CPU_CORE}'
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
 alias cdgit='cd /data/git_repo'
 alias cdwork='cd /data/workspace'
 alias cdbuildroot='cd /data/buildroot'
@@ -30,12 +39,16 @@ alias sshfs='sshfs ${SSHFS_OPTS}'
 function addAlias
 {
 	vim ~/.bash_aliases ; source ~/.bash_aliases
+<<<<<<< HEAD
 	updateGit
+=======
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
 }
 
 function addAliasPrivate
 {
 	vim ~/.bash_aliases_$(uname) ; source ~/.bash_aliases_$(uname)
+<<<<<<< HEAD
 	updateGit
 }
 
@@ -47,6 +60,8 @@ function updateGit
 	git add -A
 	git commit -s
 	cd ${CURRENT_PATH}
+=======
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
 }
 
 function CmakeTemplate()
@@ -58,6 +73,10 @@ function CmakeTemplate()
 
     CMAKE_TEMPLATE_PATH=/data/git_repo/scripts/automation/template/cmake
     cp ${CMAKE_TEMPLATE_PATH}/CMakeLists_${1}.template ${PWD}/CMakeLists.txt
+<<<<<<< HEAD
+=======
+    cp ${CMAKE_TEMPLATE_PATH}/CMakeBase.inc ${PWD}
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
 }
 
 function CmakeClean()

@@ -9,6 +9,11 @@ project(${TARGET}
     LANGUAGES "CXX"
     )
 
+<<<<<<< HEAD
+=======
+include(CMakeBase.inc)
+
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
 set(SOURCES
     ${TARGET}.cpp
     )
@@ -21,8 +26,11 @@ set(DEPENDENCIES_LIST
     )
 
 add_compile_options(
+<<<<<<< HEAD
     -std=c++11
     -Wall
+=======
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
     )
 
 add_definitions(
@@ -43,4 +51,8 @@ install(TARGETS ${TARGET}
 
 target_link_libraries(${TARGET} "${DEPENDENCIES_LIST}")
 
+<<<<<<< HEAD
 # set(CMAKE_VERBOSE_MAKEFILE ON)
+=======
+# set(CMAKE_VERBOSE_MAKEFILE ON)
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8

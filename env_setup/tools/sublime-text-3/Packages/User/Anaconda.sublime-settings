@@ -1,0 +1,8 @@
+{
+    "anaconda_linting": false,
+    "python_interpreter": "python3",
+    "pep8_ignore":
+    [
+        "E309", "E501"
+    ],
+}

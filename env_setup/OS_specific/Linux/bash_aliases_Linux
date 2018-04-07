@@ -2,12 +2,18 @@
 
 ROOT_DIR=$(dirname $(realpath ${BASH_SOURCE[0]}))
 source ${ROOT_DIR}/../../common/utils.sh
+<<<<<<< HEAD
 
 export PS1='\[\033[32;1m\]\w\[\033[0m\]\$ '
 INFO_COLOR="\e[37m"
 ERROR_COLOR="\e[31m"
 WARNING_COLOR="\e[33m"
 NORMAL_COLOR="\e[0m"
+=======
+source ${ROOT_DIR}/../../common/project_scripts.sh
+
+export PS1='\[\033[32;1m\]\w\[\033[0m\]\$ '
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
 
 MAC_IP=lh-mac.local
 alias MountMac='sshfs hoangtrunghuy@${MAC_IP}:/data/workspace /data/workspace/'
@@ -16,7 +22,10 @@ alias cdyocto='cd /data/yocto'
 alias picocom='sudo picocom -e t'
 alias pacman='pacman --color auto'
 alias ConnectSerial='picocom -b 115200 /dev/ttyUSB0'
+<<<<<<< HEAD
 alias InitPokySDK='source /data/yocto/i.MX6/sdk/environment-setup-cortexa9hf-neon-poky-linux-gnueabi'
+=======
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
 alias apt='sudo apt'
 alias mount='sudo mount'
 alias umount='sudo umount'
@@ -37,11 +46,16 @@ function GotoPC()
 
 function GotoBBG()
 {
+<<<<<<< HEAD
     PC_IP=hh-bbg.local
+=======
+    PC_IP=192.168.10.190
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
     PC_ACC=root
     ssh ${PC_ACC}@${PC_IP}
 }
 
+<<<<<<< HEAD
 function MountiBRIDGEDrive()
 {
     MOUNT_OPTS='-t cifs -o username=huy.ht,password=qylz39dd,rw,user,uid=hh -o vers=1.0'
@@ -127,6 +141,8 @@ function Change_IP_class()
     sudo ifconfig enx84afec7365aa 192.168.${1}.191
 }
 
+=======
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
 function Ssh_refresh()
 {
     rm ${HOME}/.ssh/known_hosts
