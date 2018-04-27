@@ -3,6 +3,7 @@
 ROOT_DIR=$(dirname $(realpath ${BASH_SOURCE[0]}))
 source ${ROOT_DIR}/../../common/utils.sh
 source ${ROOT_DIR}/../../common/project_scripts.sh
+source ${ROOT_DIR}/../../common/coding.sh
 
 export PS1='\[\033[32;1m\]\w\[\033[0m\]\$ '
 
