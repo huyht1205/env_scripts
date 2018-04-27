@@ -33,6 +33,7 @@ add-repo_visual-studio-code()
 MY_PKG=" \
 	openssh-server avahi-daemon avahi-discover avahi-dnsconfd avahi-utils \
 	picocom ctags sshfs ctags sublime-text google-chrome-stable clang libclang-dev \
+    cmake \
 "
 
 YOCTO_DEV=" \
