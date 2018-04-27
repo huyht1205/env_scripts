@@ -84,7 +84,6 @@ function MountNetDrive()
 
     _USER=$(whoami)
     _MOUNT_OPTS='-t cifs -o username='${_USERNAME}',password='${_PASSWORD}',rw,user,uid='${_USER}' -o vers=1.0'
-    echo ${_MOUNT_OPTS}
     _SERVER_IP='192.168.1.12'
     _MOUNT_LOCATION='/data/ibridge'
 
