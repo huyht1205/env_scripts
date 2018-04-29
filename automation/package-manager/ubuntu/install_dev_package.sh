@@ -51,21 +51,12 @@ AUTOTOOLS=" \
 	autoconf automake libtool \
 "
 
-<<<<<<< HEAD
-add-repo_sublime-text
-add-repo_google-chrome-stable
-=======
+# add-repo_google-chrome-stable
 # add-repo_sublime-text
-add-repo_google-chrome-stable
-add-repo_visual-studio-code
->>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
+# add-repo_visual-studio-code
 apt-get install ${MY_PKG} ${YOCTO_DEV} ${KERNEL_DEV}
 
 # Java virtual machin
 #sudo add-apt-repository ppa:webupd8team/java
 #sudo apt-get update
-<<<<<<< HEAD
-#sudo apt-get install oracle-java8-installer oracle-java8-set-default 
-=======
 #sudo apt-get install oracle-java8-installer oracle-java8-set-default
->>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
