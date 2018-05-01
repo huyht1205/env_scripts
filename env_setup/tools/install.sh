@@ -1,9 +1,11 @@
 #!/bin/bash
 
 HOME_DIR=${PWD}
+
 TARGET_LIST=(
-    $(ls .)
+    Code
     )
+
 REMOVE_FROM_LIST=(
     install.sh
     )
