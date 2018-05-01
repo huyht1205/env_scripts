@@ -2,9 +2,7 @@
 
 APT_SOURCES_D=/etc/apt/sources.list.d
 
-add-repo_sublime-text()
-{
-	if [[ ! -e ${APT_SOURCES_D}/sublime-text.list ]]; then
+add-repo_sublime-text() { if [[ ! -e ${APT_SOURCES_D}/sublime-text.list ]]; then
 		wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 		sudo apt-get install apt-transport-https
 		echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
@@ -32,7 +30,7 @@ add-repo_visual-studio-code()
 
 MY_PKG=" \
 	openssh-server avahi-daemon avahi-discover avahi-dnsconfd avahi-utils \
-	picocom ctags sshfs ctags sublime-text google-chrome-stable clang libclang-dev \
+	picocom ctags sshfs ctags clang libclang-dev \
     cmake \
 "
 
@@ -50,8 +48,8 @@ AUTOTOOLS=" \
 "
 
 # add-repo_sublime-text
-add-repo_google-chrome-stable
-add-repo_visual-studio-code
+# add-repo_google-chrome-stable
+# add-repo_visual-studio-code
 apt-get install ${MY_PKG} ${YOCTO_DEV} ${KERNEL_DEV}
 
 # Java virtual machin
