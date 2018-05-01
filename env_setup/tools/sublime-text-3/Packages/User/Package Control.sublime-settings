@@ -5,6 +5,19 @@
 	],
 	"installed_packages":
 	[
+<<<<<<< HEAD
+		"ARM Assembly",
+		"Bitbake Syntax",
+		"C Improved",
+		"CMake",
+		"Devicetree DTS Highlighting",
+		"DoxyDoc",
+		"EasyClangComplete",
+		"Makefile Improved",
+		"Markdown Preview",
+		"Package Control",
+		"QMakeProject",
+=======
 		"Anaconda",
 		"ARM Assembly",
 		"Bitbake Syntax",
@@ -14,6 +27,7 @@
 		"Makefile Improved",
 		"Markdown Preview",
 		"Package Control",
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
 		"TerminalView",
 		"Vintageous"
 	]

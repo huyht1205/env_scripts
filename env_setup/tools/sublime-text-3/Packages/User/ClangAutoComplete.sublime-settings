@@ -14,6 +14,9 @@
   [
     "c",
     "h"
+<<<<<<< HEAD
+  ]
+=======
   ],
   "autocomplete_all" : "true",
   "include_dirs" : [
@@ -21,4 +24,5 @@
     "/data/workspace/01_PROJECT/CDPF/AllLinuxDev-CommonPF/sysroot/include",
     "/data/workspace/01_PROJECT/CDPF/AllLinuxDev-CommonPF/app/frameprovider/inc",
   ],
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
 }

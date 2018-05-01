@@ -19,6 +19,8 @@ add-repo_google-chrome-stable()
 	fi
 }
 
+<<<<<<< HEAD
+=======
 add-repo_visual-studio-code()
 {
 	if [[ ! -e ${APT_SOURCES_D}/ ]]; then
@@ -28,6 +30,7 @@ add-repo_visual-studio-code()
 	fi
 }
 
+>>>>>>> 71bb5517edc4b57e929e0eb8f63287f60f190eb8
 MY_PKG=" \
 	openssh-server avahi-daemon avahi-discover avahi-dnsconfd avahi-utils \
 	picocom ctags sshfs ctags clang libclang-dev \
@@ -47,8 +50,12 @@ AUTOTOOLS=" \
 	autoconf automake libtool \
 "
 
-# add-repo_sublime-text
 # add-repo_google-chrome-stable
+# add-repo_sublime-text
+<<<<<<< HEAD
+# add-repo_google-chrome-stable
+=======
+>>>>>>> 4f6171dab09406d99672c065569bed7b496ec786
 # add-repo_visual-studio-code
 apt-get install ${MY_PKG} ${YOCTO_DEV} ${KERNEL_DEV}
 
