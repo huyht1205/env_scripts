@@ -18,7 +18,5 @@
   "autocomplete_all" : "true",
   "include_dirs" : [
     "/usr/include",
-    "/data/workspace/01_PROJECT/CDPF/AllLinuxDev-CommonPF/sysroot/include",
-    "/data/workspace/01_PROJECT/CDPF/AllLinuxDev-CommonPF/app/frameprovider/inc",
   ],
 }

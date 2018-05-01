@@ -47,8 +47,8 @@ AUTOTOOLS=" \
 	autoconf automake libtool \
 "
 
-# add-repo_sublime-text
 # add-repo_google-chrome-stable
+# add-repo_sublime-text
 # add-repo_visual-studio-code
 apt-get install ${MY_PKG} ${YOCTO_DEV} ${KERNEL_DEV}
 
