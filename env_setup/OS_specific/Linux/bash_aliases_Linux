@@ -48,3 +48,10 @@ function ToLowerCase()
 {
     rename 'y/A-Z/a-z/' ${1}
 }
+
+function init_env()
+{
+    xset r rate 200 50
+}
+
+init_env
