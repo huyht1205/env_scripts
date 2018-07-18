@@ -1,8 +1,7 @@
 add_compile_options(
     -std=c++11
     -Wall
+    -Wextra
     -Werror
-    -Wempty-body  
-    -Wsign-compare  
-    -Wuninitialized  
+    -Wno-unused-parameter
 )
