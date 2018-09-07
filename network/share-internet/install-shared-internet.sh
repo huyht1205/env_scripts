@@ -4,6 +4,8 @@ THIS_DIR=$(dirname $(realpath ${0}))
 CONF_DIR=sysctl_conf
 CONF=30-ipforward.conf
 SYSCTL_DIR=/etc/sysctl.d
+IPTABLES=wan-shared-to-lan
+IPTABLES_DIR=iptables
 WAN=${1}
 LAN=${2}
 SUBNET=${3}
@@ -12,6 +14,7 @@ USAGE="${0} <WAN interface> <LAN interface> <subnet>"
 function main() {
     check_args
     setup_ip_forwarding
+    apply_iptables
 }
 
 function check_args() {
@@ -44,6 +47,18 @@ function create_sysctl_conf() {
     if [[ ! -L ${SYSCTL_DIR}/${CONF} ]]; then
         sudo ln -sv ${THIS_DIR}/${CONF_DIR}/${CONF} --target-directory=${SYSCTL_DIR}
     fi
+}
+
+function apply_iptables() {
+    echo "${FUNCNAME}"
+    sed \
+        -e s/_WAN_/"${WAN}"/g \
+        -e s/_LAN_/"${LAN}"/g \
+        -e s/_SUBNET_/"${SUBNET}\/24"/g \
+        ${IPTABLES_DIR}/${IPTABLES} \
+        > temp_iptables
+    sudo iptables-restore temp_iptables
+    rm temp_iptables
 }
 
 main
