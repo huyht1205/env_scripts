@@ -4,8 +4,6 @@ THIS_DIR=$(dirname $(realpath ${0}))
 CONF_DIR=sysctl_conf
 CONF=30-ipforward.conf
 SYSCTL_DIR=/etc/sysctl.d
-IPTABLES=wan-shared-to-lan
-IPTABLES_DIR=iptables
 WAN=${1}
 LAN=${2}
 SUBNET=${3}
@@ -51,14 +49,13 @@ function create_sysctl_conf() {
 
 function apply_iptables() {
     echo "${FUNCNAME}"
-    sed \
-        -e s/_WAN_/"${WAN}"/g \
-        -e s/_LAN_/"${LAN}"/g \
-        -e s/_SUBNET_/"${SUBNET}\/24"/g \
-        ${IPTABLES_DIR}/${IPTABLES} \
-        > temp_iptables
-    sudo iptables-restore temp_iptables
-    rm temp_iptables
+    sudo iptables -t nat -A POSTROUTING -o ${WAN} -j MASQUERADE
+    sudo iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+    sudo iptables -A FORWARD -i ${LAN} -o ${WAN} -j ACCEPT
+    
+    sudo iptables -I INPUT -p udp --dport 67 -i ${LAN} -j ACCEPT
+    sudo iptables -I INPUT -p udp --dport 53 -s ${SUBNET}/24 -j ACCEPT
+    sudo iptables -I INPUT -p tcp --dport 53 -s ${SUBNET}/24 -j ACCEPT
 }
 
 main
