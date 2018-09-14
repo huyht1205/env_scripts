@@ -1,0 +1,33 @@
+#!/bin/bash
+
+prepare_template() {
+    BRANCH_NAME=$(git symbolic-ref --short HEAD)
+
+    if [[ ${BRANCH_NAME} == "int/"* ]]; then
+        COMMIT_PREFIX="internal"
+    else
+        BRANCH_NAME=${BRANCH_NAME##*/}
+        TICKET_NUMBER=${BRANCH_NAME%%_*}
+        COMMIT_PREFIX=${TICKET_NUMBER}
+    fi
+
+    sed -i.bak -e "1s/^/${COMMIT_PREFIX}: \n/" $1
+}
+
+case "$2,$3" in
+    # --amend option was provided
+    commit,?*)
+    ;;
+
+    # -m option was provided
+    message,)
+    ;;
+
+    # merge commit
+    merge,)
+    ;;
+
+    *)
+        prepare_template $1
+    ;;
+esac
