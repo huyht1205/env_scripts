@@ -6,7 +6,7 @@ USAGE="${0} <module-name>"
 
 DRIVER_LIST=(
     rtl8812au 8812au.ko    https://github.com/gnab/rtl8812au.git
-    rtl8822bu rtl8822bu.ko https://github.com/ulli-kroll/rtl8822bu.git 
+    rtl8812bu rtl8822bu.ko https://github.com/ulli-kroll/rtl8822bu.git 
 )
 
 for (( i=0; i < ${#DRIVER_LIST[@]}; i+=3 )); do 
