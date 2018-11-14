@@ -10,20 +10,12 @@
     "window.openFilesInNewWindow": "default",
     "window.openFoldersInNewWindow": "off",
     "editor.wordWrap": "on",
-    "python.linting.enabled": true,
-    "python.linting.lintOnSave": false,
-    "python.linting.maxNumberOfProblems": 100,
-    "python.workspaceSymbols.exclusionPatterns": [
-        ".vscode/*.py",
-        "**/site-packages/**/*.py"
-    ],
     "workbench.startupEditor": "none",
     "editor.renderWhitespace": "none",
     "editor.renderControlCharacters": false,
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.scrollback": 1000000,
     "window.zoomLevel": 0,
-    "python.linting.pylintPath": "/usr/local/bin/pylint",
     "C_Cpp.errorSquiggles": "Enabled",
     "files.trimTrailingWhitespace": true,
     "editor.tabSize": 4,
@@ -34,5 +26,28 @@
     "debug.inlineValues": true,
     "C_Cpp.default.cStandard": "c11",
     "C_Cpp.default.cppStandard": "c++11",
-    "C_Cpp.default.compileCommands": "compile_commands.json"
+    "go.gopath": "/data/common/go",
+    "[cpp]": {},
+    "python.linting.pylintPath": "/home/hh/.local/bin/pylint",
+    "python.autoComplete.extraPaths": [
+        "/usr/local/lib/python3.5/dist-packages/pydbus",
+        "/usr/local/lib/python3.5/dist-packages",
+        "/usr/local/lib/python3.5/dist-packages/pydbus",
+        "/usr/lib/python3/dist-packages/gi/overrides"
+    ],
+    "python.pythonPath": "/usr/bin/python3",
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "python.jediPath": "/usr/local/lib/python3.5/dist-packages/",
+    "python.jediEnabled": true,
+    "markdown.extension.toc.updateOnSave": false,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.chktex.enabled": true,
+    "less.lint.duplicateProperties": "warning",
+    "javascript.implicitProjectConfig.checkJs": true,
+    "breadcrumbs.enabled": true,
+    "window.titleBarStyle": "custom"
 }
