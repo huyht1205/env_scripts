@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function install_deps() {
-    sudo apt -y install python3-pip
+    sudo apt install -y python3-pip
 }
 
 function install_mbed_cli() {
