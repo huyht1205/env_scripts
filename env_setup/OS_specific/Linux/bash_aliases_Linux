@@ -22,7 +22,7 @@ alias Vim='vim'
 alias AddNote='vim ${NOTE}'
 
 export LD_LIBRARY_PATH=/usr/lib64:/usr/local/lib
-export PATH=${PATH}:${ROOT_DIR}/../../../development_function
+export PATH=${PATH}:${ROOT_DIR}/../../../development_function:${HOME}/.local/bin
 
 source /usr/share/bash-completion/completions/git
 
