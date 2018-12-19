@@ -20,6 +20,7 @@ alias umount='sudo umount'
 alias visudo='sudo visudo'
 alias Vim='vim'
 alias AddNote='vim ${NOTE}'
+alias Open='gvfs-open'
 
 export LD_LIBRARY_PATH=/usr/lib64:/usr/local/lib
 export PATH=${PATH}:${ROOT_DIR}/../../../development_function
