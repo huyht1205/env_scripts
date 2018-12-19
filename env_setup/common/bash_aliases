@@ -24,6 +24,7 @@ alias make='make -j${CPU_CORE}'
 alias cdgit='cd /data/git_repo'
 alias cdwork='cd /data/workspace'
 alias cdbuildroot='cd /data/buildroot'
+alias dkc='docker container ls -a'
 
 SSH_OPTS="-4"
 alias ssh='ssh ${SSH_OPTS}'
@@ -47,7 +48,7 @@ function CmakeTemplate()
 		return -1
 	fi
 
-    CMAKE_TEMPLATE_PATH=/data/git_repo/scripts/automation/template/cmake
+    CMAKE_TEMPLATE_PATH=/data/git_repo/env_scripts/automation/template/cmake
     cp ${CMAKE_TEMPLATE_PATH}/CMakeLists_${1}.template ${PWD}/CMakeLists.txt
     cp ${CMAKE_TEMPLATE_PATH}/CMakeBase.inc ${PWD}
 }
