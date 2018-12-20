@@ -30,6 +30,8 @@ alias ssh='ssh ${SSH_OPTS}'
 SSHFS_OPTS="-o cache=yes -o kernel_cache -o compression=no"
 alias sshfs='sshfs ${SSHFS_OPTS}'
 
+export PATH=${PATH}:/data/git_repo/env_scripts/dev-scripts
+
 function addAlias
 {
 	vim ~/.bash_aliases ; source ~/.bash_aliases
