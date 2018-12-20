@@ -3,7 +3,7 @@
 # This is setup for TFTP server and NFS server for booting linux via
 # local network for embedded board
 
-sudo apt-get install tftp tftpd nfs-kernel-server
+sudo apt-get install tftp tftpd nfs-kernel-server xinetd
 
 cp ./tftp /etc/xinetd.d/tftp
 
