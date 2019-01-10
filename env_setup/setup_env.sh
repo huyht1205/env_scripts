@@ -7,6 +7,13 @@ function main() {
 	#copy_etc
 }
 
+function config_env() {
+    SCRIPT=OS_specific/${U_NAME}/config-env.sh
+    if [[ -e ${SCRIPT} ]]; then
+        source ${SCRIPT}
+    fi
+}
+
 function git_config() {
 	printf "${FUNCNAME}($1)..."
 	#git config --global user.name "Hoang Trung Huy"
