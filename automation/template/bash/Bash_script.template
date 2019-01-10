@@ -20,6 +20,22 @@ while getopts h opt; do
     esac
 done
 
+# --- LOG --- #
+function log()
+{
+        printf "[LOG] ${@}\n"
+}
+
+function warn()
+{
+        printf "[WARNING] ${@}\n"
+}
+
+function error()
+{
+        printf "[ERROR] ${@}\n"
+}
+
 # --- MAIN --- #
 function main()
 {
