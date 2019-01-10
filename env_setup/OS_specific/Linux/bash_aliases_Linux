@@ -23,7 +23,7 @@ alias AddNote='vim ${NOTE}'
 alias Open='gvfs-open'
 
 export LD_LIBRARY_PATH=/usr/lib64:/usr/local/lib
-export PATH=${PATH}:${ROOT_DIR}/../../../development_function:${HOME}/.local/bin
+export PATH=${PATH}:${ROOT_DIR}/../../../development_function:${HOME}/.local/bin:/sbin:/usr/sbin
 
 source /usr/share/bash-completion/completions/git
 

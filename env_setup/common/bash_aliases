@@ -58,4 +58,15 @@ function CmakeClean()
     rm -rf CMakeCache.txt  CMakeFiles  cmake_install.cmake Makefile
 }
 
+function BashTemplate()
+{
+	if [[ -z ${1} ]]; then
+		echo "Usage: ${0} <script name>"
+		return -1
+	fi
+
+    BASH_TEMPLATE_PATH=/data/git_repo/env_scripts/automation/template/bash
+    cp ${BASH_TEMPLATE_PATH}/Bash_script.template ${1}
+}
+
 source ~/.bash_aliases_$(uname)

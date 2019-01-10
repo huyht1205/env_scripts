@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# --- INPUT --- #
+
+# --- VARIABLES --- #
+SCRIPT=$(basename ${BASH_SOURCE[0]})
+SCRIPT_DIR=$(dirname $(realpath ${BASH_SOURCE[0]}))
+
+# --- ARGS --- #
+USAGE="\
+$(basename ${BASH_SOURCE[0]}) [OPTIONS]\n\
+    -h: this message\n\
+"
+while getopts h opt; do
+    case "${opt}" in
+        h)
+            printf "${USAGE}"
+            exit 0
+            ;;
+    esac
+done
+
+# --- MAIN --- #
+function main()
+{
+    check_input
+}
+
+# --- SUB FUNCTIONS --- #
+function check_input()
+{
+    :
+}
+
+main
