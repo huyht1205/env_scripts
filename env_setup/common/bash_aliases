@@ -45,14 +45,17 @@ function addAliasPrivate
 
 function CmakeTemplate()
 {
-	if [[ -z ${1} ]]; then
+    _OUTPUT=${PWD}/CMakeLists.txt
+    _TYPE=${1}
+
+	if [[ -z ${_TYPE} ]]; then
 		echo "Usage: ${0} <lib|bin>"
 		return -1
 	fi
 
     CMAKE_TEMPLATE_PATH=/data/git_repo/env_scripts/automation/template/cmake
-    cp ${CMAKE_TEMPLATE_PATH}/CMakeLists_${1}.template ${PWD}/CMakeLists.txt
-    cp ${CMAKE_TEMPLATE_PATH}/CMakeBase.inc ${PWD}
+    cp ${CMAKE_TEMPLATE_PATH}/CMakeLists_core.template ${_OUTPUT}
+    cat ${CMAKE_TEMPLATE_PATH}/CMakeLists_${_TYPE}.template >> ${_OUTPUT}
 }
 
 function CmakeClean()

@@ -1,41 +1,9 @@
-cmake_minimum_required (VERSION 3.4.3)
-
-set(TARGET
-    "My project"
-    )
-
-project(${TARGET}
-    VERSION 1.0.0
-    LANGUAGES "CXX"
-    )
-
-include(CMakeBase.inc)
-
-set(SOURCES
-    ${TARGET}.cpp
+add_library(${TARGET} SHARED
+    "${SOURCES}"
     )
 
 set(PUBLIC_HEADER_FILES
     ${TARGET}.h
-    )
-
-link_directories(
-    )
-
-include_directories(
-    )
-
-set(DEPENDENCIES_LIST
-    )
-
-add_compile_options(
-    )
-
-add_definitions(
-    )
-
-add_library(${TARGET} SHARED
-    "${SOURCES}"
     )
 
 set_target_properties(${TARGET} PROPERTIES
@@ -46,8 +14,3 @@ install(TARGETS ${TARGET}
     LIBRARY         DESTINATION lib
     PUBLIC_HEADER   DESTINATION include
     )
-
-target_link_libraries(${TARGET} "${DEPENDENCIES_LIST}")
-
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-# set(CMAKE_VERBOSE_MAKEFILE ON)
