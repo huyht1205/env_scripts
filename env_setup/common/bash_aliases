@@ -2,6 +2,7 @@
 
 ROOT_DIR=$(dirname $(realpath ${BASH_SOURCE[0]}))
 source ${ROOT_DIR}/utils.sh
+TEMPLATE_PATH=/data/git_repo/env_scripts/template
 
 complete -cf sudo
 complete -cf which
@@ -43,7 +44,7 @@ function addAliasPrivate
 	vim ~/.bash_aliases_$(uname) ; source ~/.bash_aliases_$(uname)
 }
 
-function CmakeTemplate()
+function Template_cmake()
 {
     _OUTPUT=${PWD}/CMakeLists.txt
     _TYPE=${1}
@@ -53,9 +54,9 @@ function CmakeTemplate()
 		return -1
 	fi
 
-    CMAKE_TEMPLATE_PATH=/data/git_repo/env_scripts/automation/template/cmake
-    cp ${CMAKE_TEMPLATE_PATH}/CMakeLists_core.template ${_OUTPUT}
-    cat ${CMAKE_TEMPLATE_PATH}/CMakeLists_${_TYPE}.template >> ${_OUTPUT}
+    _CMAKE_TEMPLATE_PATH=${TEMPLATE_PATH}/cmake
+    cp ${_CMAKE_TEMPLATE_PATH}/CMakeLists_core.template ${_OUTPUT}
+    cat ${_CMAKE_TEMPLATE_PATH}/CMakeLists_${_TYPE}.template >> ${_OUTPUT}
 }
 
 function CmakeClean()
@@ -63,15 +64,15 @@ function CmakeClean()
     rm -rf CMakeCache.txt  CMakeFiles  cmake_install.cmake Makefile
 }
 
-function BashTemplate()
+function Template_bash()
 {
 	if [[ -z ${1} ]]; then
 		echo "Usage: ${0} <script name>"
 		return -1
 	fi
 
-    BASH_TEMPLATE_PATH=/data/git_repo/env_scripts/automation/template/bash
-    cp ${BASH_TEMPLATE_PATH}/Bash_script.template ${1}
+    _BASH_TEMPLATE_PATH=${TEMPLATE_PATH}/bash
+    cp ${_BASH_TEMPLATE_PATH}/Bash_script.template ${1}
 }
 
 source ~/.bash_aliases_$(uname)
