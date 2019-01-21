@@ -44,8 +44,6 @@ add_compile_options(
 add_definitions(
     )
 
-target_link_libraries(${TARGET} "${DEPENDENCIES_LIST}")
-
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 #set(CMAKE_VERBOSE_MAKEFILE ON)
 

@@ -5,3 +5,5 @@ add_executable(${TARGET}
 install(TARGETS ${TARGET}
     RUNTIME         DESTINATION bin
     )
+
+target_link_libraries(${TARGET} "${DEPENDENCIES_LIST}")
