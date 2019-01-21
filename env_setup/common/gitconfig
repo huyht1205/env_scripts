@@ -1,0 +1,12 @@
+[core]
+	editor = vim
+[push]
+	default = simple
+[alias]
+	s = status
+	l = log --decorate
+	b = branch
+	a = add
+[user]
+	name = Hoang Trung Huy
+	email = huyht1205@protonmail.com

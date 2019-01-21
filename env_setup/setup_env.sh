@@ -49,6 +49,7 @@ function initScript() {
 	#copy common
 	do_link bash_aliases 'common'
 	do_link vimrc 'common'
+	do_link gitconfig 'common'
 
 	#copy specific
 	U_NAME=$(uname)
