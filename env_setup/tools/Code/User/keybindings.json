@@ -134,5 +134,14 @@
         "key": "ctrl+q",
         "command": "-extension.vim_winCtrlQ",
         "when": "editorTextFocus && vim.active && vim.use<C-q> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+shift+space",
+        "command": "editor.action.insertSnippet"
+    },
+    {
+        "key": "ctrl+shift+space",
+        "command": "-editor.action.triggerParameterHints",
+        "when": "editorHasSignatureHelpProvider && editorTextFocus"
     }
 ]
