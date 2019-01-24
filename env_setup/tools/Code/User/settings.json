@@ -2,7 +2,7 @@
     "window.titleBarStyle": "custom",
     "editor.minimap.enabled": false,
     "python.jediEnabled": false,
-    "cmake.configureOnOpen": true,
+    "cmake.configureOnOpen": false,
     "latex-workshop.view.pdf.viewer": "tab",
     "editor.rulers": [80],
     "workbench.colorTheme": "Monokai",
@@ -11,5 +11,6 @@
     "editor.useTabStops": false,
     "editor.trimAutoWhitespace": false,
     "C_Cpp.default.cStandard": "c99",
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "cmake.buildDirectory": "${workspaceRoot}"
 }
