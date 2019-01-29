@@ -32,7 +32,8 @@ alias ssh='ssh ${SSH_OPTS}'
 SSHFS_OPTS="-o cache=yes -o kernel_cache -o compression=no"
 alias sshfs='sshfs ${SSHFS_OPTS}'
 
-export PATH=${PATH}:/data/git_repo/env_scripts/dev-scripts
+NRF_SDK='/data/sdk/nRF/bin'
+export PATH=${PATH}:${NRF_SDK}:/data/git_repo/env_scripts/dev-scripts
 
 function addAlias
 {
@@ -61,7 +62,14 @@ function Template_cmake()
 
 function CmakeClean()
 {
-    rm -rf CMakeCache.txt  CMakeFiles  cmake_install.cmake Makefile
+    _CLEAN_LIST=(
+        compile_commands.json
+        CMakeCache.txt
+        CMakeFiles
+        cmake_install.cmake
+        Makefile
+        )
+    rm -rf ${_CLEAN_LIST[@]}
 }
 
 function Template_bash()

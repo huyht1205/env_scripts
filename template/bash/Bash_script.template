@@ -3,12 +3,14 @@
 # --- INPUT --- #
 
 # --- VARIABLES --- #
-SCRIPT=$(basename ${BASH_SOURCE[0]})
-SCRIPT_DIR=$(dirname $(realpath ${BASH_SOURCE[0]}))
+THIS=$(basename ${BASH_SOURCE[0]})
+THIS_DIR=$(dirname $(realpath ${BASH_SOURCE[0]}))
 
 # --- ARGS --- #
 USAGE="\
-$(basename ${BASH_SOURCE[0]}) [OPTIONS]\n\
+${THIS} [OPTIONS]\n\
+\n\
+OPTIONS:\n\
     -h: this message\n\
 "
 while getopts h opt; do
@@ -39,11 +41,11 @@ function error()
 # --- MAIN --- #
 function main()
 {
-    check_input
+    sub_func
 }
 
 # --- SUB FUNCTIONS --- #
-function check_input()
+function sub_func()
 {
     :
 }

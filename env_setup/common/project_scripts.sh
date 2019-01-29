@@ -71,16 +71,11 @@ function Uboot_deploy()
     sync
 }
 
-function get_local_account()
-{
-    _USERNAME=$(head ${1} -n1)
-    _PASSWORD=$(tail ${1} -n1)
-}
-
 function MountNetDrive()
 {
     _ACCOUNT_FILE=${HOME}/.local_account
-    get_local_account ${_ACCOUNT_FILE}
+    _USERNAME=$(head ${_ACCOUNT_FILE} -n1)
+    _PASSWORD=$(tail ${_ACCOUNT_FIL1} -n1)
 
     _USER=$(whoami)
     _MOUNT_OPTS='-t cifs -o username='${_USERNAME}',password='${_PASSWORD}',rw,user,uid='${_USER}' -o vers=1.0'
