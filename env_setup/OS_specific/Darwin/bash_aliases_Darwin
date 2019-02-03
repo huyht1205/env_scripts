@@ -23,6 +23,8 @@ PC_ACC='hh'
 alias GotoPC='ssh ${PC_ACC}@${PC_IP}'
 alias MountPC='sshfs ${PC_ACC}@${PC_IP}:/ ${MOUNTPOINT}/pc'
 
+export PATH=${PATH}:/data/sdk/nRF/bin
+
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 source ~/.git-completion.bash
