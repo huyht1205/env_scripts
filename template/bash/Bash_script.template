@@ -1,53 +1,64 @@
 #!/bin/bash
 
-# --- INPUT --- #
-
-# --- VARIABLES --- #
+#######################################################################
+#                            DEFINES                                  #
+#######################################################################
 THIS=$(basename ${BASH_SOURCE[0]})
 THIS_DIR=$(dirname $(realpath ${BASH_SOURCE[0]}))
 
-# --- ARGS --- #
-USAGE="\
-${THIS} [OPTIONS]\n\
-\n\
-OPTIONS:\n\
-    -h: this message\n\
-"
-while getopts h opt; do
+#######################################################################
+#                            INCLUDES                                 #
+#######################################################################
+source ${THIS_DIR}/../lib/path.sh
+source ${SCRIPTS}/lib/utils.sh
+
+#######################################################################
+#                             USAGE                                   #
+#######################################################################
+OPTS=(
+    -h ""        "print this message"
+    -a "<arg>"   "set something"
+    )
+function print_usage()
+{
+    printf "$(basename ${BASH_SOURCE[0]}) [OPTIONS]\n"
+    printf "<short description>\n"
+    printf "OPTIONS:\n"
+    for ((i=0; i < ${#OPTS[@]}; i+=3)); do
+        _OPT=${OPTS[i]}
+        _ARG=${OPTS[i+1]}
+        _DESC=${OPTS[i+2]}
+        printf "\n"
+        printf "    %s %-15s: %s\n" "${_OPT}" "${_ARG}" "${_DESC}"
+    done
+}
+while getopts ha: opt; do
     case "${opt}" in
+        a)
+            typeset -l A=${OPTARG}
+            ;;
         h)
-            printf "${USAGE}"
+            print_usage ${OPTS[@]}
             exit 0
             ;;
     esac
 done
 
-# --- LOG --- #
-function log()
-{
-        printf "[LOG] ${@}\n"
-}
+#######################################################################
+#                           FUNCTIONS                                 #
+#######################################################################
 
-function warn()
-{
-        printf "[WARNING] ${@}\n"
-}
-
-function error()
-{
-        printf "[ERROR] ${@}\n"
-}
-
-# --- MAIN --- #
-function main()
-{
-    sub_func
-}
-
-# --- SUB FUNCTIONS --- #
-function sub_func()
+function check_input()
 {
     :
+}
+
+#######################################################################
+#                              MAIN                                   #
+#######################################################################
+function main()
+{
+    check_input
 }
 
 main
