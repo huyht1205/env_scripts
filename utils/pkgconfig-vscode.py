@@ -4,11 +4,13 @@ import os, re, sys, json, requests
 C_CPP_JSON=".vscode/c_cpp_properties.json"
 
 def main(argv):
-    pkg          = argv[1]
-    cflags       = os.popen('pkg-config --cflags ' + pkg).read().split()
-    regex        = re.compile("-I.")
-    includes     = list()
-    env          = dict()
+    pkgs     = ""
+    for each in argv[1:]:
+        pkgs = pkgs + " " + each
+    cflags   = os.popen('pkg-config --cflags ' + pkgs).read().split()
+    regex    = re.compile("-I.")
+    includes = list()
+    env      = dict()
 
     for each in cflags:
         if re.match(regex, each):
@@ -21,9 +23,11 @@ def main(argv):
     f.close()
     
     vscode_json['env'] = env
-    vscode_json['configurations'][0]['includePath'].append("${user-include}")
+    includePath        = vscode_json['configurations'][0]['includePath']
+    if not includePath.count("${user-include}"):
+        includePath.append("${user-include}")
     
-    with open("./test", 'w') as out:
+    with open(C_CPP_JSON, 'w') as out:
         json.dump(vscode_json, out, sort_keys=True, indent=4)
 
 if __name__ == "__main__":
