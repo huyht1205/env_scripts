@@ -10,25 +10,32 @@ def main(argv):
     cflags   = os.popen('pkg-config --cflags ' + pkgs).read().split()
     regex    = re.compile("-I.")
     includes = list()
-    env      = dict()
 
     for each in cflags:
         if re.match(regex, each):
             includes.append(each[2:])
     
-    env['user-include'] = includes
-    
     with open(C_CPP_JSON, 'r') as f:
         vscode_json = json.load(f)
-    f.close()
+        f.close()
     
-    vscode_json['env'] = env
-    includePath        = vscode_json['configurations'][0]['includePath']
+    if 'env' not in vscode_json:
+        env = dict()
+        env['user-include'] = includes
+        vscode_json['env'] = env
+    else:
+        if 'user-include' not in vscode_json['env']:
+            vscode_json['env']['user-include'] = includes
+        else:
+            vscode_json['env']['user-include'] += includes
+
+    includePath = vscode_json['configurations'][0]['includePath']
     if not includePath.count("${user-include}"):
         includePath.append("${user-include}")
     
     with open(C_CPP_JSON, 'w') as out:
         json.dump(vscode_json, out, sort_keys=True, indent=4)
+        out.close()
 
 if __name__ == "__main__":
     main(sys.argv)
