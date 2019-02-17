@@ -2,7 +2,6 @@
 
 ROOT_DIR=$(dirname $(realpath ${BASH_SOURCE[0]}))
 source ${ROOT_DIR}/utils.sh
-TEMPLATE_PATH=/data/git_repo/env_scripts/template
 
 complete -cf sudo
 complete -cf which
@@ -30,11 +29,14 @@ alias ssh='ssh ${SSH_OPTS}'
 SSHFS_OPTS="-o cache=yes -o kernel_cache -o compression=no"
 alias sshfs='sshfs ${SSHFS_OPTS}'
 
+TEMPLATE_PATH="/data/git_repo/env_scripts/template"
 SDK_PATH="/data/sdk"
 NRF_SDK="${SDK_PATH}/nRF/bin"
 ARM_NONE_EABI_GCC="${SDK_PATH}/arm-none-eabi-gcc/bin"
 DEV_SCRIPTS="/data/git_repo/env_scripts/dev-scripts"
+TOOLS_PATH="/data/git_repo/env_scripts/utils"
 export PATH=${PATH}:${NRF_SDK}:${ARM_NONE_EABI_GCC}:${DEV_SCRIPTS}
+export PATH=${PATH}:${TEMPLATE_PATH}:${TOOLS_PATH}
 
 function addAlias
 {
