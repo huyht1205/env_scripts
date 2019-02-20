@@ -1,8 +1,6 @@
 #!/bin/bash
 
-ROOT_DIR=$(dirname $(realpath ${BASH_SOURCE[0]}))
-GIT_REPO="/data/git_repo"
-source ${ROOT_DIR}/utils.sh
+ROOT_DIR="/data/git_repo/env_scripts"
 
 complete -cf sudo
 complete -cf which
@@ -20,7 +18,7 @@ alias grep='grep --color=auto --exclude=tags'
 alias egrep='egrep --color=auto --exclude=tags -n'
 alias df='df -Th'
 alias make='make -j${CPU_CORE}'
-alias cdgit="cd ${GIT_REPO}"
+alias cdgit="cd /data/git_repo"
 alias cdwork='cd /data/workspace'
 alias cdbuildroot='cd /data/buildroot'
 alias dkc='docker container ls -a'
@@ -49,21 +47,6 @@ function addAliasPrivate
 	vim ~/.bash_aliases_$(uname) ; source ~/.bash_aliases_$(uname)
 }
 
-function Template_cmake()
-{
-    _OUTPUT=${PWD}/CMakeLists.txt
-    _TYPE=${1}
-
-	if [[ -z ${_TYPE} ]]; then
-		echo "Usage: ${0} <lib|bin>"
-		return -1
-	fi
-
-    _CMAKE_TEMPLATE_PATH=${TEMPLATE_PATH}/cmake
-    cp ${_CMAKE_TEMPLATE_PATH}/CMakeLists_core.template ${_OUTPUT}
-    cat ${_CMAKE_TEMPLATE_PATH}/CMakeLists_${_TYPE}.template >> ${_OUTPUT}
-}
-
 function CmakeClean()
 {
     _CLEAN_LIST=(
@@ -76,15 +59,5 @@ function CmakeClean()
     rm -rf ${_CLEAN_LIST[@]}
 }
 
-function Template_bash()
-{
-	if [[ -z ${1} ]]; then
-		echo "Usage: ${0} <script name>"
-		return -1
-	fi
-
-    _BASH_TEMPLATE_PATH=${TEMPLATE_PATH}/bash
-    cp ${_BASH_TEMPLATE_PATH}/Bash_script.template ${1}
-}
-
+source ${ROOT_DIR}/template/template-generator.sh
 source ~/.bash_aliases_$(uname)
