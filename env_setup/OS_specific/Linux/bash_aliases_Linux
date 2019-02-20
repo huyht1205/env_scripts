@@ -1,12 +1,10 @@
 #!/bin/bash
 
 ROOT_DIR=$(dirname $(realpath ${BASH_SOURCE[0]}))
-source ${ROOT_DIR}/../../common/utils.sh
 source ${ROOT_DIR}/../../common/project_scripts.sh
 source ${ROOT_DIR}/../../common/coding.sh
 
 CPU_CORE=$(cat /proc/cpuinfo | grep -c ^processor)
-NOTE=~/.note.md
 MAC_IP=lh-mac.local
 alias MountMac='sshfs hoangtrunghuy@${MAC_IP}:/data/workspace /data/workspace/'
 alias cdlinuxWorkspace='cd /data/linux-workspace'
@@ -66,7 +64,10 @@ function init_env()
 
 function display_note()
 {
-    cat ${NOTE}
+    _NOTE=~/.note.md
+    if [[ -e ${_NOTE} ]]; then
+        cat ${_NOTE}
+    fi
 }
 
 main
