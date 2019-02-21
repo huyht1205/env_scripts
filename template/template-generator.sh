@@ -24,6 +24,7 @@ function Template_cmake()
     _CMAKE_TEMPLATE_PATH=${TEMPLATE_PATH}/cmake
     cp ${_CMAKE_TEMPLATE_PATH}/CMakeLists_core.template ${_OUTPUT}
     cat ${_CMAKE_TEMPLATE_PATH}/CMakeLists_${_TYPE}.template >> ${_OUTPUT}
+    cp ${_CMAKE_TEMPLATE_PATH}/build.sh ${PWD}
 }
 
 function Template_zephyr()
