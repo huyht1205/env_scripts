@@ -1,16 +1,6 @@
 {
-    "window.titleBarStyle": "custom",
-    "editor.minimap.enabled": false,
-    "python.jediEnabled": false,
-    "cmake.configureOnOpen": false,
-    "latex-workshop.view.pdf.viewer": "tab",
-    "editor.rulers": [80],
-    "workbench.colorTheme": "Monokai",
-    "window.zoomLevel": 0,
-    "vim.useCtrlKeys": false,
-    "editor.useTabStops": false,
-    "editor.trimAutoWhitespace": false,
-    "C_Cpp.default.cStandard": "c99",
-    "editor.wordWrap": "on",
-    "cmake.buildDirectory": "${workspaceRoot}"
+    "editor.rulers": [
+        100
+    ],
+    "editor.minimap.enabled": false
 }
