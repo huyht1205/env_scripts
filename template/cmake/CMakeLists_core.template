@@ -12,8 +12,7 @@ project(${TARGET}
     LANGUAGES "CXX"
     )
 
-include(CMakeBase.inc)
-find_package(PkgConfig)
+# find_package(PkgConfig)
 
 # pkg_check_modules(SOME_LIB REQUIRED somelib)
 
