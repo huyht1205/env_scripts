@@ -150,7 +150,7 @@
         "when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)source\\.organizeImports\\b/"
     },
     {
-        "key": "shift+alt+o",
+        "key": "ctrl+p",
         "command": "workbench.action.quickOpen"
     },
     {
@@ -158,7 +158,7 @@
         "command": "-workbench.action.quickOpen"
     },
     {
-        "key": "shift+alt+o",
+        "key": "ctrl+p",
         "command": "workbench.action.quickOpenNavigateNextInFilePicker",
         "when": "inFilesPicker && inQuickOpen"
     },
