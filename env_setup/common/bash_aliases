@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ROOT_DIR="/data/git_repo/env_scripts"
+ENV_SCRIPTS="/data/git_repo/env_scripts"
 
 complete -cf sudo
 complete -cf which
@@ -22,18 +22,19 @@ alias cdgit="cd /data/git_repo"
 alias cdwork='cd /data/workspace'
 alias cdbuildroot='cd /data/buildroot'
 alias dkc='docker container ls -a'
+alias InitZephyr="source ${ENV_SCRIPTS}/utils/zephyr-user-env.sh"
 
 SSH_OPTS="-4"
 alias ssh='ssh ${SSH_OPTS}'
 SSHFS_OPTS="-o cache=yes -o kernel_cache -o compression=no"
 alias sshfs='sshfs ${SSHFS_OPTS}'
 
-TEMPLATE_PATH="/data/git_repo/env_scripts/template"
+TEMPLATE_PATH="${ENV_SCRIPTS}/template"
 SDK_PATH="/data/sdk"
 NRF_SDK="${SDK_PATH}/nRF/bin"
 ARM_NONE_EABI_GCC="${SDK_PATH}/arm-none-eabi-gcc/bin"
-DEV_SCRIPTS="/data/git_repo/env_scripts/dev-scripts"
-TOOLS_PATH="/data/git_repo/env_scripts/utils"
+DEV_SCRIPTS="${ENV_SCRIPTS}/dev-scripts"
+TOOLS_PATH="${ENV_SCRIPTS}/utils"
 export PATH=${PATH}:${NRF_SDK}:${ARM_NONE_EABI_GCC}:${DEV_SCRIPTS}
 export PATH=${PATH}:${TEMPLATE_PATH}:${TOOLS_PATH}
 
@@ -59,5 +60,5 @@ function CmakeClean()
     rm -rf ${_CLEAN_LIST[@]}
 }
 
-source ${ROOT_DIR}/template/template-generator.sh
+source ${ENV_SCRIPTS}/template/template-generator.sh
 source ~/.bash_aliases_$(uname)
