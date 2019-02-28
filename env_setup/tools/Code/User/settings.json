@@ -6,5 +6,6 @@
     "workbench.colorTheme": "Monokai",
     "files.associations": {
         "*.h": "c"
-    }
+    },
+    "diffEditor.ignoreTrimWhitespace": true
 }
