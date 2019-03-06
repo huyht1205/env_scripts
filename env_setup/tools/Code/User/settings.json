@@ -3,9 +3,25 @@
         100
     ],
     "editor.minimap.enabled": false,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "editor.acceptSuggestionOnEnter": "on",
+    "editor.quickSuggestionsDelay": 10,
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.tabCompletion": "on",
+    "editor.suggest.localityBonus": true,
+    "editor.suggestSelection": "recentlyUsed",
+    "editor.wordBasedSuggestions": true,
+    "editor.parameterHints.cycle": true,
+    "editor.parameterHints.enabled": true,
     "workbench.colorTheme": "Monokai",
     "files.associations": {
         "*.h": "c"
     },
-    "diffEditor.ignoreTrimWhitespace": true
+    "diffEditor.ignoreTrimWhitespace": true,
+    "editor.wordWrap": "bounded",
+    "vim.useCtrlKeys": false
 }
