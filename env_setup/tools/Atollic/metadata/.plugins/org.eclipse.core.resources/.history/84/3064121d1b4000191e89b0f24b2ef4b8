@@ -1,9 +1,0 @@
-eclipse.preferences.version=1
-environment/project/com.atollic.truestudio.exe.debug.612486244/CUBEMX_FW/delimiter=\:
-environment/project/com.atollic.truestudio.exe.debug.612486244/CUBEMX_FW/operation=append
-environment/project/com.atollic.truestudio.exe.debug.612486244/CUBEMX_FW/value=/data/long-term-storage/STM32Cube/Repository/STM32Cube_FW_F7_V1.14.0
-environment/project/com.atollic.truestudio.exe.debug.612486244/SE_FW/delimiter=\:
-environment/project/com.atollic.truestudio.exe.debug.612486244/SE_FW/operation=append
-environment/project/com.atollic.truestudio.exe.debug.612486244/SE_FW/value=../../../../../../../Middlewares
-environment/project/com.atollic.truestudio.exe.debug.612486244/append=true
-environment/project/com.atollic.truestudio.exe.debug.612486244/appendContributed=true
