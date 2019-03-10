@@ -2,9 +2,8 @@
     "env": {
         "LONG_TERM_STORAGE": "/data/long-term-storage",
         "FAMILY": "F7",
-        "FW_VER": "V1.14.0",
         "MW": "${workspaceFolder}/../Middlewares",
-        "CUBE": "${LONG_TERM_STORAGE}/STM32Cube/Repository/STM32Cube_FW_${FAMILY}_${FW_VER}",
+        "CUBE": "${LONG_TERM_STORAGE}/STM32Cube/Repository/STM32Cube_FW_${FAMILY}",
         "DRV": "${CUBE}/Drivers",
         "GCC_BIN": "/data/sdk/STMicroelectronics/atollic/9.3.0/ARMTools/bin",
         "GCC_PREFIX": "arm-atollic-eabi-",
