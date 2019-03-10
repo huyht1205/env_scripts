@@ -7,7 +7,7 @@
         "DRV": "${CUBE}/Drivers",
         "GCC_BIN": "/data/sdk/STMicroelectronics/atollic/9.3.0/ARMTools/bin",
         "GCC_PREFIX": "arm-atollic-eabi-",
-        "CC": "${GCC_BIN}/${GCC_PREFIX}",
+        "CC": "${GCC_BIN}/${GCC_PREFIX}gcc",
         "MCU": "STM32F746xx",
         "uDefines": [
             "${MCU}",
