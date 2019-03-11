@@ -23,5 +23,6 @@
     },
     "diffEditor.ignoreTrimWhitespace": true,
     "editor.wordWrap": "bounded",
-    "vim.useCtrlKeys": false
+    "vim.useCtrlKeys": false,
+    "C_Cpp.default.intelliSenseMode": "gcc-x64"
 }
