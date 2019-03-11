@@ -24,5 +24,7 @@
     "diffEditor.ignoreTrimWhitespace": true,
     "editor.wordWrap": "bounded",
     "vim.useCtrlKeys": false,
-    "C_Cpp.default.intelliSenseMode": "gcc-x64"
+    "C_Cpp.default.intelliSenseMode": "gcc-x64",
+    "terminal.external.linuxExec": "gnome-terminal",
+    "terminal.integrated.cursorBlinking": true
 }
