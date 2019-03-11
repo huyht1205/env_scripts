@@ -23,6 +23,7 @@ alias cdwork='cd /data/workspace'
 alias cdbuildroot='cd /data/buildroot'
 alias dkc='docker container ls -a'
 alias InitZephyr="source ${ENV_SCRIPTS}/utils/zephyr-user-env.sh"
+alias STM32_Programmer_CLI="STM32_Programmer_CLI -c port=swd"
 
 SSH_OPTS="-4"
 alias ssh='ssh ${SSH_OPTS}'
@@ -31,13 +32,15 @@ alias sshfs='sshfs ${SSHFS_OPTS}'
 
 TEMPLATE_PATH="${ENV_SCRIPTS}/template"
 SDK_PATH="/data/sdk"
+ATOLLIC_PATH="${SDK_PATH}/STMicroelectronics/atollic"
 NRF_SDK="${SDK_PATH}/nRF/bin"
 ARM_NONE_EABI_GCC="${SDK_PATH}/arm-none-eabi-gcc/bin"
 DEV_SCRIPTS="${ENV_SCRIPTS}/dev-scripts"
 TOOLS_PATH="${ENV_SCRIPTS}/utils"
-ATOLLIC_GCC="${SDK_PATH}/STMicroelectronics/atollic/9.3.0/ARMTools/bin"
+ATOLLIC_GCC="${ATOLLIC_PATH}/ARMTools/bin"
+STM_PROG="${ATOLLIC_PATH}/Servers/STM32CubeProgrammer/bin"
 export PATH=${PATH}:${NRF_SDK}:${ARM_NONE_EABI_GCC}:${DEV_SCRIPTS}
-export PATH=${PATH}:${TEMPLATE_PATH}:${TOOLS_PATH}:${ATOLLIC_GCC}
+export PATH=${PATH}:${TEMPLATE_PATH}:${TOOLS_PATH}:${ATOLLIC_GCC}:${STM_PROG}
 
 function addAlias
 {
