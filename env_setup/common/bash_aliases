@@ -35,8 +35,9 @@ NRF_SDK="${SDK_PATH}/nRF/bin"
 ARM_NONE_EABI_GCC="${SDK_PATH}/arm-none-eabi-gcc/bin"
 DEV_SCRIPTS="${ENV_SCRIPTS}/dev-scripts"
 TOOLS_PATH="${ENV_SCRIPTS}/utils"
+ATOLLIC_GCC="${SDK_PATH}/STMicroelectronics/atollic/9.3.0/ARMTools/bin"
 export PATH=${PATH}:${NRF_SDK}:${ARM_NONE_EABI_GCC}:${DEV_SCRIPTS}
-export PATH=${PATH}:${TEMPLATE_PATH}:${TOOLS_PATH}
+export PATH=${PATH}:${TEMPLATE_PATH}:${TOOLS_PATH}:${ATOLLIC_GCC}
 
 function addAlias
 {
