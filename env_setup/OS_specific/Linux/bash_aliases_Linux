@@ -60,7 +60,7 @@ function ToLowerCase()
 
 function init_env()
 {
-    xset r rate 200 50
+    xset r rate 220 40
 }
 
 function display_note()
