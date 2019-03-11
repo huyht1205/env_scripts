@@ -30,8 +30,12 @@ AUTOTOOLS=" \
 	autoconf automake libtool \
 "
 
+PYTHON=" \
+    python3 python python3-pip python-pip ipython3
+"
+
 add-repo_visual-studio-code
-apt-get install ${MY_PKG} ${YOCTO_DEV} ${KERNEL_DEV}
+apt-get install ${MY_PKG} ${YOCTO_DEV} ${KERNEL_DEV} ${PYTHON}
 
 # Java virtual machin
 #sudo add-apt-repository ppa:webupd8team/java

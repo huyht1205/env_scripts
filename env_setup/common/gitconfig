@@ -4,7 +4,7 @@
 	default = simple
 [alias]
 	s = status
-	l = log --decorate
+	l = log
 	b = branch
 	a = add
 [user]
