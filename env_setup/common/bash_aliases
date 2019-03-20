@@ -45,7 +45,7 @@ alias cdwork='cd /data/workspace'
 alias cdbuildroot='cd /data/buildroot'
 alias dkc='docker container ls -a'
 alias InitZephyr="source ${ENV_SCRIPTS}/utils/zephyr-user-env.sh"
-alias STM32_Programmer_CLI="${ATOLLIC_PATH}/Servers/STM32CubeProgrammer/bin/STM32_Programmer_CLI -c port=swd"
+alias STM32_Programmer_CLI="STM32_Programmer_CLI -c port=swd"
 
 SSH_OPTS="-4"
 alias ssh='ssh ${SSH_OPTS}'
