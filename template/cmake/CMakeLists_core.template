@@ -20,7 +20,7 @@ set(SOURCES
     ${TARGET}.cpp
     )
 
-set(DEPENDENCIES_LIST
+set(LIBS
     # ${SOME_LIB_LIBRARIES}
     )
 
