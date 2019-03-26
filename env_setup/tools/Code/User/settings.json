@@ -22,9 +22,11 @@
         "*.h": "c"
     },
     "diffEditor.ignoreTrimWhitespace": true,
-    "editor.wordWrap": "bounded",
+    "editor.wordWrap": "on",
     "vim.useCtrlKeys": false,
-    "C_Cpp.default.intelliSenseMode": "gcc-x64",
+    "C_Cpp.default.intelliSenseMode": "clang-x64",
     "terminal.external.linuxExec": "gnome-terminal",
-    "terminal.integrated.cursorBlinking": true
+    "terminal.integrated.cursorBlinking": true,
+    "window.zoomLevel": 0,
+    "C_Cpp.intelliSenseEngineFallback": "Disabled"
 }
