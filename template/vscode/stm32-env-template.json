@@ -5,8 +5,8 @@
         "MW": "${workspaceFolder}/../Middlewares",
         "CUBE": "${LONG_TERM_STORAGE}/STM32Cube/Repository/STM32Cube_FW_${FAMILY}",
         "DRV": "${CUBE}/Drivers",
-        "GCC_BIN": "/data/sdk/STMicroelectronics/atollic/9.3.0/ARMTools/bin",
-        "GCC_PREFIX": "arm-atollic-eabi-",
+        "GCC_BIN": "/data/sdk/arm-none-eabi-gcc/bin",
+        "GCC_PREFIX": "arm-none-eabi-",
         "CC": "${GCC_BIN}/${GCC_PREFIX}gcc",
         "MCU": "STM32F746xx",
         "uDefines": [
@@ -14,7 +14,7 @@
             "USE_HAL_DRIVER"
         ],
         "uInclude": [
-            "${DRV}/STM32F7xx_HAL_Driver/Inc",
+            "${DRV}/STM32${FAMILY}xx_HAL_Driver/Inc",
             "${DRV}/CMSIS/Device/ST/STM32${FAMILY}xx/Include",
             "${DRV}/CMSIS/Include"
         ]
