@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 import os, re, sys, json, requests
 C_CPP_JSON='.vscode/c_cpp_properties.json'
