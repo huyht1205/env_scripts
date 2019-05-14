@@ -5,8 +5,8 @@ MODULE_PATH=/lib/modules/$(uname -r)
 USAGE="${0} <module-name>"
 
 DRIVER_LIST=(
-    rtl8812au 8812au.ko    https://github.com/gnab/rtl8812au.git
-    rtl8812bu rtl8822bu.ko https://github.com/ulli-kroll/rtl8822bu.git 
+    rtl8812au 8812au.ko https://github.com/gnab/rtl8812au.git
+    rtl88x2bu 88x2bu.ko https://github.com/cilynx/rtl88x2BU_WiFi_linux_v5.3.1_27678.20180430_COEX20180427-5959.git
 )
 
 for (( i=0; i < ${#DRIVER_LIST[@]}; i+=3 )); do 
@@ -18,7 +18,7 @@ for (( i=0; i < ${#DRIVER_LIST[@]}; i+=3 )); do
     if [[ ${MODULE_NAME} == ${INSTALL_MODULE} ]]; then
         if [[ ! -e ${MODULE_PATH}/${MODULE_KO} ]]; then
             git clone ${DRIVER_REPO} ${MODULE_BUILD_DIR}
-            make -C ${MODULE_BUILD_DIR}
+            make -C ${MODULE_BUILD_DIR} all -j4
             sudo cp ${MODULE_BUILD_DIR}/${MODULE_KO} ${MODULE_PATH}
             rm -rf ${MODULE_BUILD_DIR}
         fi
