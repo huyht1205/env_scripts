@@ -1,12 +1,15 @@
 [core]
 	editor = vim
+	autocrlf = input
 [push]
 	default = simple
 [alias]
 	s = status
-	l = log
+	l = log --decorate --graph
 	b = branch
 	a = add
 [user]
-	name = Hoang Trung Huy
+	name = Luck
 	email = huyht1205@protonmail.com
+[merge]
+	tool = kdiff3

@@ -8,22 +8,20 @@ complete -cf which
 export VISUAL=vim
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export GOPATH=${HOME}/go
 
 TEMPLATE_PATH="${ENV_SCRIPTS}/template"
 SDK_PATH="/data/sdk"
-ATOLLIC_PATH="${SDK_PATH}/STMicroelectronics/atollic"
 NRF_SDK="${SDK_PATH}/nRF/bin"
 ARM_NONE_EABI_GCC="${SDK_PATH}/arm-none-eabi-gcc/bin"
 DEV_SCRIPTS="${ENV_SCRIPTS}/dev-scripts"
 TOOLS_PATH="${ENV_SCRIPTS}/utils"
-ATOLLIC_GCC="${ATOLLIC_PATH}/ARMTools/bin"
 EXT_PATH=(
     ${NRF_SDK}
     ${ARM_NONE_EABI_GCC}
     ${DEV_SCRIPTS}
     ${TEMPLATE_PATH}
     ${TOOLS_PATH}
-    ${ATOLLIC_GCC}
 )
 
 for p in ${EXT_PATH[@]}; do
@@ -39,13 +37,11 @@ alias mkdir='mkdir -p -m 775'
 alias grep='grep --color=auto --exclude=tags'
 alias egrep='egrep --color=auto --exclude=tags -n'
 alias df='df -Th'
-alias make='make -j${CPU_CORE}'
 alias cdgit="cd /data/git_repo"
 alias cdwork='cd /data/workspace'
 alias cdbuildroot='cd /data/buildroot'
 alias dkc='docker container ls -a'
 alias InitZephyr="source ${ENV_SCRIPTS}/utils/zephyr-user-env.sh"
-alias STM32_Programmer_CLI="STM32_Programmer_CLI -c port=swd"
 
 SSH_OPTS="-4"
 alias ssh='ssh ${SSH_OPTS}'
